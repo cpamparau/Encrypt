@@ -1,0 +1,11 @@
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\Geometrie.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\Geometrie.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\interfataCategorii.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\interfataCategorii.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\obj\Debug\Geometrie.csprojResolveAssemblyReference.cache
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\obj\Debug\Geometrie.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\obj\Debug\Geometrie.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\ClasaSingleton.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\Interfatagrafica.exe
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\ClasaSingleton.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Geometrie\bin\Debug\Interfatagrafica.pdb

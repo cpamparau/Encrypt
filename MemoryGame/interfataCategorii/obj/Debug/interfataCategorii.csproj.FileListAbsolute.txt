@@ -1,0 +1,5 @@
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\interfataCategorii\bin\Debug\interfataCategorii.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\interfataCategorii\bin\Debug\interfataCategorii.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\interfataCategorii\obj\Debug\interfataCategorii.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\interfataCategorii\obj\Debug\interfataCategorii.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\interfataCategorii\obj\Debug\interfataCategorii.csprojResolveAssemblyReference.cache

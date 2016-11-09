@@ -1,0 +1,5 @@
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\LibrarieClaseFisiere\bin\Debug\LibrarieClaseFisiere.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\LibrarieClaseFisiere\bin\Debug\LibrarieClaseFisiere.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\obj\Debug\Interfatagrafica.Properties.Resources.resources
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\obj\Debug\Interfatagrafica.csproj.GenerateResource.Cache
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\bin\Debug\Interfatagrafica.exe.config
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\bin\Debug\Interfatagrafica.exe
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\bin\Debug\Interfatagrafica.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\obj\Debug\Interfatagrafica.exe
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\obj\Debug\Interfatagrafica.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Interfatagrafica\obj\Debug\Interfatagrafica.csprojResolveAssemblyReference.cache
