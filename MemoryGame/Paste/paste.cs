@@ -73,7 +73,7 @@ namespace Paste
                         if (instance.Potriviri.Count == instance.dimensiuneLista)
                         {
                             //salvare date pentru scriere in fisier
-                            string string_terminare_joc = "Your score: " + instance.scor + "\nYour time: " + /*instance.cronometruEticheta.Txt*/ +"\nMistakes :" + instance.greseli;
+                            string string_terminare_joc = "Your score: " + Convert.ToString(instance.scor) + "\nYour time: " /*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + Convert.ToString(instance.greseli);
                             instance.scor = 0;
                             /* formInstance.backsecond.Visible=False;
                              * formInstance.btn1.Visible=true;
@@ -102,14 +102,17 @@ namespace Paste
 
         public void ascundeImagini(PictureBox imagine)
         {
-
+            //imagine.Image = formInstance.Paste.Images(formInstance.Paste.Images.Count - 1) 
+            //inlocuieste imaginea curenta cu cea anterioara 
+            //imaginea anterioara fiinde cea de background , care ascunde imaginile
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void arataimagine(PictureBox imagine)
         {
-
+            //image.Image = formInstance.Paste.Images(Convert.ToInt32(image.Tag))
+            formInstance.Refresh();
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------

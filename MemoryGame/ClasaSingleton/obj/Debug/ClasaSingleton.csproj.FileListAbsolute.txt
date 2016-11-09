@@ -5,3 +5,10 @@ D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\Cl
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\ClasaSingleton\bin\Debug\Interfatagrafica.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\ClasaSingleton\obj\Debug\ClasaSingleton.dll
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\LibrarieClaseFisiere\ClasaSingleton\obj\Debug\ClasaSingleton.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\bin\Debug\ClasaSingleton.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\bin\Debug\ClasaSingleton.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\bin\Debug\Interfatagrafica.exe
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\bin\Debug\Interfatagrafica.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\obj\Debug\ClasaSingleton.csprojResolveAssemblyReference.cache
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\obj\Debug\ClasaSingleton.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\ClasaSingleton\obj\Debug\ClasaSingleton.pdb

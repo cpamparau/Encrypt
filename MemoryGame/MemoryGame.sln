@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "interfataCategorii", "inter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minioni", "Minioni\Minioni.csproj", "{EDB2696A-CA0C-4591-B571-192EEF81FC1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometrie", "Geometrie\Geometrie.csproj", "{AC85CF68-C9AF-4A5D-81FB-60829E06C7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry", "Geometrie\Geometry.csproj", "{AC85CF68-C9AF-4A5D-81FB-60829E06C7C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paste", "Paste\Paste.csproj", "{CCCF4D56-DA61-4D63-90B2-C4EB26C3A35E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pastee", "Paste\Pastee.csproj", "{CCCF4D56-DA61-4D63-90B2-C4EB26C3A35E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
