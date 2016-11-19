@@ -39,6 +39,7 @@
             this.Button1 = new System.Windows.Forms.Button();
             this.Geometry = new System.Windows.Forms.ImageList(this.components);
             this.Easter = new System.Windows.Forms.ImageList(this.components);
+            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,21 +101,21 @@
             // 
             this.Minion.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Minion.ImageStream")));
             this.Minion.TransparentColor = System.Drawing.Color.Transparent;
-            this.Minion.Images.SetKeyName(0, "ask.png");
-            this.Minion.Images.SetKeyName(1, "minion0.png");
-            this.Minion.Images.SetKeyName(2, "minion1.png");
-            this.Minion.Images.SetKeyName(3, "minion2.png");
-            this.Minion.Images.SetKeyName(4, "minion3.png");
-            this.Minion.Images.SetKeyName(5, "minion4.png");
-            this.Minion.Images.SetKeyName(6, "minion5.png");
-            this.Minion.Images.SetKeyName(7, "minion6.png");
-            this.Minion.Images.SetKeyName(8, "minion7.png");
-            this.Minion.Images.SetKeyName(9, "minion8.png");
-            this.Minion.Images.SetKeyName(10, "minion9.png");
-            this.Minion.Images.SetKeyName(11, "minion10.png");
-            this.Minion.Images.SetKeyName(12, "minion11.png");
-            this.Minion.Images.SetKeyName(13, "minion12.png");
-            this.Minion.Images.SetKeyName(14, "minion13.png");
+            this.Minion.Images.SetKeyName(0, "minion0.png");
+            this.Minion.Images.SetKeyName(1, "minion1.png");
+            this.Minion.Images.SetKeyName(2, "minion2.png");
+            this.Minion.Images.SetKeyName(3, "minion3.png");
+            this.Minion.Images.SetKeyName(4, "minion4.png");
+            this.Minion.Images.SetKeyName(5, "minion5.png");
+            this.Minion.Images.SetKeyName(6, "minion6.png");
+            this.Minion.Images.SetKeyName(7, "minion7.png");
+            this.Minion.Images.SetKeyName(8, "minion8.png");
+            this.Minion.Images.SetKeyName(9, "minion9.png");
+            this.Minion.Images.SetKeyName(10, "minion10.png");
+            this.Minion.Images.SetKeyName(11, "minion11.png");
+            this.Minion.Images.SetKeyName(12, "minion12.png");
+            this.Minion.Images.SetKeyName(13, "minion13.png");
+            this.Minion.Images.SetKeyName(14, "ask.png");
             // 
             // PictureBox1
             // 
@@ -165,21 +166,25 @@
             // 
             this.Easter.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Easter.ImageStream")));
             this.Easter.TransparentColor = System.Drawing.Color.Transparent;
-            this.Easter.Images.SetKeyName(0, "ask.png");
-            this.Easter.Images.SetKeyName(1, "egg0.png");
-            this.Easter.Images.SetKeyName(2, "egg1.png");
-            this.Easter.Images.SetKeyName(3, "egg2.png");
-            this.Easter.Images.SetKeyName(4, "egg3.png");
-            this.Easter.Images.SetKeyName(5, "egg4.png");
-            this.Easter.Images.SetKeyName(6, "egg5.png");
-            this.Easter.Images.SetKeyName(7, "egg6.png");
-            this.Easter.Images.SetKeyName(8, "egg7.png");
-            this.Easter.Images.SetKeyName(9, "egg8.png");
-            this.Easter.Images.SetKeyName(10, "egg9.png");
-            this.Easter.Images.SetKeyName(11, "egg10.png");
-            this.Easter.Images.SetKeyName(12, "egg11.png");
-            this.Easter.Images.SetKeyName(13, "egg12.png");
-            this.Easter.Images.SetKeyName(14, "egg13.png");
+            this.Easter.Images.SetKeyName(0, "egg0.png");
+            this.Easter.Images.SetKeyName(1, "egg1.png");
+            this.Easter.Images.SetKeyName(2, "egg2.png");
+            this.Easter.Images.SetKeyName(3, "egg3.png");
+            this.Easter.Images.SetKeyName(4, "egg4.png");
+            this.Easter.Images.SetKeyName(5, "egg5.png");
+            this.Easter.Images.SetKeyName(6, "egg6.png");
+            this.Easter.Images.SetKeyName(7, "egg7.png");
+            this.Easter.Images.SetKeyName(8, "egg8.png");
+            this.Easter.Images.SetKeyName(9, "egg9.png");
+            this.Easter.Images.SetKeyName(10, "egg10.png");
+            this.Easter.Images.SetKeyName(11, "egg11.png");
+            this.Easter.Images.SetKeyName(12, "egg12.png");
+            this.Easter.Images.SetKeyName(13, "egg13.png");
+            this.Easter.Images.SetKeyName(14, "ask.png");
+            // 
+            // Timer1
+            // 
+            this.Timer1.Interval = 1000;
             // 
             // Form1
             // 
@@ -215,6 +220,7 @@
         public System.Windows.Forms.ImageList Minion;
         public System.Windows.Forms.ImageList Geometry;
         public System.Windows.Forms.ImageList Easter;
+        public System.Windows.Forms.Timer Timer1;
     }
 }
 
