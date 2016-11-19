@@ -16,9 +16,7 @@ namespace Interfatagrafica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 f = new Form1();
-            f.Show();
-            Application.Run(f);
+            Application.Run(new Form1());
         }
     }
 }

@@ -14,28 +14,144 @@ namespace Interfatagrafica
 {
     public partial class Form1 : Form
     {
-        private Singleton instance = Singleton.Instance;
-        public Button btn1=new Button();
-        public Button medium1 = new Button();
-        public Button hard1 = new Button();
-        public Button back = new Button();
-        public Button backsecond = new Button();
-        public  Label cronometruEticheta = new Label();
-        public Label scorEticheta = new Label();
-        public minioni m=new minioni();
-        public paste p=new paste();
-        public geometrie g=new geometrie();
-        
+        public static Button btn1;
+        public static Button medium1;
+        public static Button hard1;
+        public static Button back;
+        public static Button backsecond ;
+        public static System.Windows.Forms.Timer Timer1;
+        public static Label cronometruEticheta;
+        public static Label scorEticheta;
+        //public static Control.ControlCollection c;
+        public minioni m;
+        public paste p;
+        public geometrie g;
+
+        //date publice
+        public static int timpi, nrCopiiImagini, dimensiuneLista, nrSecunde, nrMinute, nrOre, greseli, ab, scor;
+        public static string name;
+        public struct rezultat
+        {
+            int scor;
+            DateTime timp;
+            string nume;
+            string gen;
+        };
+        public static rezultat[] rezultate = new rezultat[100];
+        public static bool usor, medium, greu;
+        //public PictureBox back;
+        public static List<int> Potriviri;
+        public static List<PictureBox> Imagini; // contine imagini
+        public static List<PictureBox> Alegeri; // contine imagini alese
         public Form1()
         {
             InitializeComponent();
-            
+            btn1=new Button();
+            medium1 = new Button();
+            //c = this.Controls;
+            hard1= new Button();
+            back= new Button();
+            backsecond= new Button();
+            cronometruEticheta = new Label();
+            scorEticheta=new Label();
+            Timer1 = new System.Windows.Forms.Timer();
+            Timer1.Interval = 1000;
+            Form1 f = this;
+            m=new minioni(ref f);
+            p = new paste(ref f);
+            g = new geometrie(ref f);
         }
 
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public static void creare_cronometru()
+        {
+            //eticheta cronometru
+            cronometruEticheta.Width = 200;
+            cronometruEticheta.Height = 40;
+            cronometruEticheta.Location = new Point(730, 100);
+            cronometruEticheta.Font = new Font("Arial", 18, FontStyle.Bold);
+            cronometruEticheta.Text = "00:00:00";
+            cronometruEticheta.BorderStyle = BorderStyle.FixedSingle;
+            cronometruEticheta.Visible = true;
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public static void creare_scor()
+        {
+            //eticheta scor
+            scorEticheta.Width = 200;
+            scorEticheta.Height = 40;
+            scorEticheta.Location = new Point(730, 50);
+            scorEticheta.Font = new Font("Arial", 18, FontStyle.Bold);
+            scorEticheta.BorderStyle = BorderStyle.FixedSingle;
+            scorEticheta.Visible = true;
+            scorEticheta.Text = "Score : 0";
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public static void vizibilitati()
+        {
+            btn1.Visible = false;
+            medium1.Visible = false;
+            hard1.Visible = false;
+            Timer1.Enabled = true;
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public void adauga_controale_pe_forma()
+        {
+            //adaugare controale
+            Controls.Add(scorEticheta);
+            Controls.Add(cronometruEticheta);
+            Controls.Add(backsecond);
+        }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public void creare_buton_inapoi()
+        {
+            //butonul back
+            backsecond.Width = 200;
+            backsecond.Height = 40;
+            backsecond.Location = new Point(730, 400);
+            backsecond.Text = "Back";
+            backsecond.Font = new Font("Arial", 18, FontStyle.Bold);
+            backsecond.Click += new EventHandler(clickInapoi);
+            backsecond.Visible = true;
+
+        }
+        //curata jocul
+        public void InitializeazaJoc()
+        {
+            if (Imagini != null)
+            {
+                if (Imagini.Count > 0)
+                    for (int i = 0; i < Form1.Imagini.Count - 1; i++)
+                        Controls.Remove(Form1.Imagini.ElementAt(i));
+                Form1.Imagini.Clear();
+                if (Alegeri != null)
+                    Alegeri.Clear();
+                if (Potriviri != null)
+                    Potriviri.Clear();
+            }
+        }
+        //metoda de intializare a unor variabile 'globale'
+        public static void initializare_date()
+        {
+            usor = false;
+            medium = false;
+            greu = false;
+            scor = 0;
+            ab = 0;
+        }
         //inapoi la meniul principal
+
         public void clickInapoi(object sender, EventArgs e)
         {
-            instance.nrSecunde = 0;
+            nrSecunde = 0;
             btn1.Visible = false;
             cronometruEticheta.Visible=false;
             scorEticheta.Visible=false;
@@ -50,6 +166,21 @@ namespace Interfatagrafica
             Button5.Visible = true;
         }
 
+        //metoda de amestecare a imaginilor
+        public static void Amesteca(ref List<PictureBox> imagini)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < imagini.Count - 1; i++)
+            {
+                int index = rnd.Next(i, imagini.Count);
+                if (i != index)
+                {
+                    PictureBox img = imagini[i];
+                    imagini[i] = imagini[index];
+                    imagini[index] = img;
+                }
+            }
+        }
         private void initializeazaButoane()
         {
             Button5.Visible = false;
@@ -60,6 +191,41 @@ namespace Interfatagrafica
 
         }
 
+        //metoda de afisare a imaginilor
+        public void afiseazaImagini(int numarRanduri)
+        {
+            int Xx = 80;
+            int Yy = 90;
+            for (int i = 0; i < Imagini.Count - 1; i++)
+            {
+                Imagini[i].Top = Yy;
+                Imagini[i].Left = Xx;
+                Imagini[i].Size = new System.Drawing.Size(85, 85);
+                Controls.Add(Imagini[i]);
+                Imagini[i].Visible = true;
+                Xx += 100;
+                if ((i + 1) % numarRanduri == 0)
+                {
+                    Xx = 80;
+                    Yy += 90;
+                }
+            }
+        }
+
+        //metoda de alegere a perechilor
+        public static bool alegePerechi()
+        {
+            int primaAlegere = 0;
+            int aDouaAlegere = 0;
+            for (int i = 0; i < Form1.Alegeri.Count - 1; i++)
+            {
+                primaAlegere = (int)Form1.Alegeri[i - 1].Tag;
+                aDouaAlegere = (int)Form1.Alegeri[i].Tag;
+                if (primaAlegere != aDouaAlegere)
+                    return false;
+            }
+            return true;
+        }
         private void adaugaControale()
         {
             Controls.Add(btn1);
@@ -80,7 +246,8 @@ namespace Interfatagrafica
         }
         public void secondBack(object sender, EventArgs e)
         {
-            instance.nrSecunde = 0;
+          
+            nrSecunde = 0;
             Timer1.Stop();
             cronometruEticheta.Text="00:00:00";
             Timer1.Dispose();
@@ -97,11 +264,22 @@ namespace Interfatagrafica
             cronometruEticheta.Visible = false;
             scorEticheta.Visible = false;
             backsecond.Visible = false;
-            instance.InitializeazaJoc();
+            if (Imagini != null)
+            {
+                if (Imagini.Count > 0)
+                    for (int i = 0; i < Imagini.Count - 1; i++)
+                       Controls.Remove(Imagini.ElementAt(i));
+                Imagini.Clear();
+                if (Alegeri != null)
+                    Alegeri.Clear();
+                if (Potriviri != null)
+                    Potriviri.Clear();
+            }
         }
         private void Button1_Click(object sender, EventArgs e)
         {
             initializeazaButoane();
+            InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
 
             buton_creare_din_cod(ref btn1,"Easy",100,50);
@@ -127,6 +305,7 @@ namespace Interfatagrafica
         private void Button2_Click(object sender, EventArgs e)
         {
             initializeazaButoane();
+            InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
             buton_creare_din_cod(ref btn1, "Easy", 100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
@@ -153,7 +332,7 @@ namespace Interfatagrafica
         private void Button3_Click(object sender, EventArgs e)
         {
             initializeazaButoane();
-
+            InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
             buton_creare_din_cod(ref btn1, "Easy", 100, 50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
@@ -185,92 +364,34 @@ namespace Interfatagrafica
        }
     public class minioni : interfataPentruCategorii
     {
-        //date membre
-        private Singleton instance;
-        private Interfatagrafica.Form1 formInstance = new Interfatagrafica.Form1();
-
-         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-       
-        private void creare_cronometru()
+        Form1 instance;
+        public minioni(ref Form1 i)
         {
-            //eticheta cronometru
-            formInstance.cronometruEticheta.Width=200;
-            formInstance.cronometruEticheta.Height=40;
-            formInstance.cronometruEticheta.Location = new Point(730,100);
-            formInstance.cronometruEticheta.Font = new Font("Arial", 18, FontStyle.Bold);
-            formInstance.cronometruEticheta.Text="00:00:00";
-            formInstance.cronometruEticheta.BorderStyle = BorderStyle.FixedSingle;
-            formInstance.cronometruEticheta.Visible=true;
-        }
-
-         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        
-        private void creare_scor()
-        {
-             //eticheta scor
-            formInstance.scorEticheta.Width=200;
-            formInstance.scorEticheta.Height=40;
-            formInstance.scorEticheta.Location=new Point(730,50);
-            formInstance.scorEticheta.Font = new Font("Arial", 18, FontStyle.Bold);
-            formInstance.scorEticheta.BorderStyle=BorderStyle.FixedSingle;
-            formInstance.scorEticheta.Visible=true;
-            formInstance.scorEticheta.Text = "Score : 0";
-        }
-
-        private void vizibilitati()
-        {
-            formInstance.btn1.Visible=false;
-            formInstance.medium1.Visible=false;
-            formInstance.hard1.Visible=false;
-            formInstance.Timer1.Enabled=true;
-        }
-        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        
-        private void adauga_controale_pe_forma()
-        {
-            //adaugare controale
-            formInstance.Controls.Add(formInstance.scorEticheta);
-            formInstance.Controls.Add(formInstance.cronometruEticheta);
-            formInstance.Controls.Add(formInstance.backsecond);
-        }
-
-         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        
-        private void creare_buton_inapoi()
-        {
-             //butonul back
-            formInstance.backsecond.Width=200;
-            formInstance.backsecond.Height=40;
-            formInstance.backsecond.Location=new Point(730,400);
-            formInstance.backsecond.Text="Back";
-            formInstance.backsecond.Font=new Font("Arial", 18, FontStyle.Bold);
-            formInstance.backsecond.Click+=new EventHandler(formInstance.clickInapoi);
-            formInstance.backsecond.Visible=true;
-
+            instance = i;
         }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+        
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
-            instance = Singleton.Instance;
-            instance.Imagini = new List<PictureBox>();
-            instance.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
-            instance.InitializeazaJoc(); // se sterg datele de joc existente
+            Form1.Imagini = new List<PictureBox>();
+            Form1.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
             int indexImagini = 0; // tine evidenta cu care imagine lucram
-            instance.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
-            for (int i = 0; i < instance.dimensiuneLista; i += numarCopiiImagini)
+            Form1.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
+            for (int i = 0; i < Form1.dimensiuneLista; i += numarCopiiImagini)
             {
                 for (int j = 1; j < numarCopiiImagini; j++) // Copie pentru fiecare imagine si retine indexul pentru fiecare imagine din lista
                 {
                     PictureBox poza = new PictureBox();
-                    poza.Image = formInstance.Minion.Images[formInstance.Minion.Images.Count-1]; // imaginea de background este ultima din lista
+                    //poza.Image = instance.formInstance.Minion.Images[instance.formInstance.Minion.Images.Count-1]; // imaginea de background este ultima din lista
                     poza.Tag = indexImagini;
+                    poza.Click += new EventHandler(imagineClick);
                     //AddHandler pictureImg.Click, AddressOf Me.image_clickMinion 'de verificat 
-                    instance.Imagini.Add(poza);
+                    Form1.Imagini.Add(poza);
                 }
                 indexImagini++;
             }
-            instance.Amesteca(ref instance.Imagini);
+            Form1.Amesteca(ref Form1.Imagini);
             if (numarTipImagine > 8)
                 instance.afiseazaImagini(6);
             else
@@ -279,54 +400,53 @@ namespace Interfatagrafica
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        public void imagineClick(Object sender)
+        public void imagineClick(Object sender, EventArgs e)
         {
-            instance = Singleton.Instance;
             PictureBox poza = (PictureBox)sender; //convertim obiectul sender la PictureBox
             int idTag = (int)poza.Tag; // converteste tag-ul la int
-            if (!instance.Alegeri.Contains(poza) && !instance.Potriviri.Contains(idTag))
+            if (!Form1.Alegeri.Contains(poza) && !Form1.Potriviri.Contains(idTag))
             {
                 //formInstance.Computer.Audio.Play(formInstance.Resources.move, AudioPlayMode.Background);
-                instance.Alegeri.Add(poza);
+                Form1.Alegeri.Add(poza);
                 arataimagine(poza);
-                if (instance.Alegeri.Count == instance.nrCopiiImagini)
+                if (Form1.Alegeri.Count == Form1.nrCopiiImagini)
                 {
-                    if (instance.alegePerechi())
+                    if (Form1.alegePerechi())
                     {
                         Thread.Sleep(1000);
-                        instance.scor += 20;
-                        formInstance.Timer1.Enabled = true;
-                        formInstance.scorEticheta.Text = "Score: "+ instance.scor;
-                        for (int j = 0; j < instance.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
+                        Form1.scor += 20;
+                        Form1.Timer1.Enabled = true;
+                        Form1.scorEticheta.Text = "Score: " + Form1.scor;
+                        for (int j = 0; j < Form1.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
                         {
-                            instance.Alegeri[j].Visible = false;
-                            instance.Potriviri.Add(idTag);
+                            Form1.Alegeri[j].Visible = false;
+                            Form1.Potriviri.Add(idTag);
                         }
                         //daca numarul total al indecsilor din Potriviri este egal cu lungimea imaginilor care se afiseaza
                         //atunci jocul s-a terminat
-                        if (instance.Potriviri.Count == instance.dimensiuneLista)
+                        if (Form1.Potriviri.Count == Form1.dimensiuneLista)
                         {
                             //salvare date pentru scriere in fisier
-                            string string_terminare_joc = "Your score: " + instance.scor + "\nYour time: " /*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + instance.greseli;
-                            instance.scor = 0;
-                            formInstance.backsecond.Visible=false;
-                            formInstance.btn1.Visible=true;
-                            formInstance.medium1.Visible=true;
-                            formInstance.hard1.Visible=true;
-                            formInstance.back.Visible=true;
-                            formInstance.scorEticheta.Text="";
-                            formInstance.cronometruEticheta.Visible=false;
-                            formInstance.scorEticheta.Visible=false;
+                            string string_terminare_joc = "Your score: " + Form1.scor + "\nYour time: " /*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + Form1.greseli;
+                            Form1.scor = 0;
+                            Form1.backsecond.Visible = false;
+                            Form1.btn1.Visible = true;
+                            Form1.medium1.Visible = true;
+                            Form1.hard1.Visible = true;
+                            Form1.back.Visible = true;
+                            Form1.scorEticheta.Text = "";
+                            Form1.cronometruEticheta.Visible = false;
+                            Form1.scorEticheta.Visible = false;
                             
                         }
                         else
                         {
-                            instance.greseli += 1;
+                            Form1.greseli += 1;
                             Thread.Sleep(1000);
-                            for (int i = 0; i < instance.Alegeri.Count - 1; i++)
-                                ascundeImagini(instance.Alegeri[i]);
+                            for (int i = 0; i < Form1.Alegeri.Count - 1; i++)
+                                ascundeImagini(Form1.Alegeri[i]);
                         }
-                        instance.Alegeri.Clear();
+                        Form1.Alegeri.Clear();
                     }
                 }
             }
@@ -337,15 +457,15 @@ namespace Interfatagrafica
         public void ascundeImagini(PictureBox imagine)
         {
             //inlocuieste imaginea curenta cu cea anterioara(cea de background care ascunde imaginile)
-            imagine.Image=formInstance.Minion.Images[formInstance.Minion.Images.Count - 1];
+            imagine.Image=instance.Minion.Images[instance.Minion.Images.Count - 1];
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void arataimagine(PictureBox imagine)
         {
-            imagine.Image=formInstance.Minion.Images[Convert.ToInt32(imagine.Tag)];
-            formInstance.Refresh();
+            imagine.Image=instance.Minion.Images[Convert.ToInt32(imagine.Tag)];
+            instance.Refresh();
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -353,34 +473,33 @@ namespace Interfatagrafica
         public void nivelUsor(object sender, EventArgs e)
         {
             deseneazaImagine(4, 2);
-            formInstance.Timer1.Start();
-            instance.nrSecunde=0;
-            instance.greseli=0;
-            instance.usor=true;
-            instance.timpi=1;
-            creare_buton_inapoi();
-            creare_scor();
-            adauga_controale_pe_forma();
-            vizibilitati();
-            creare_cronometru();
+            Form1.Timer1.Start();
+            Form1.nrSecunde = 0;
+            Form1.greseli = 0;
+            Form1.usor = true;
+            Form1.timpi = 1;
+            instance.creare_buton_inapoi();
+            Form1.creare_scor();
+            instance.adauga_controale_pe_forma();
+            Form1.vizibilitati();
+            Form1.creare_cronometru();
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void nivelMedium(object sender, EventArgs e)
         {
-            instance = Singleton.Instance;
-            formInstance.Timer1.Start();
-            instance.nrSecunde=0;
-            instance.greseli=0;
-            instance.medium=true;
-            instance.timpi=1;
+            Form1.Timer1.Start();
+            Form1.nrSecunde = 0;
+            Form1.greseli = 0;
+            Form1.medium = true;
+            Form1.timpi = 1;
             deseneazaImagine(8,2);
-            creare_buton_inapoi();
-            creare_scor();
-            adauga_controale_pe_forma();
-            vizibilitati();
-            creare_cronometru();
+            instance.creare_buton_inapoi();
+            Form1.creare_scor();
+            instance.adauga_controale_pe_forma();
+            Form1.vizibilitati();
+            Form1.creare_cronometru();
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -392,19 +511,21 @@ namespace Interfatagrafica
     }
     public class paste : interfataPentruCategorii
     {
-        //date membre
-        private Singleton instance = Singleton.Instance;
-        private Form1 formInstance = new Form1();
+        Form1 instance;
+        public paste(ref Form1 i)
+        {
+            instance = i;
+        }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
-            instance.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
+            Form1.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
             instance.InitializeazaJoc(); // se sterg datele de joc existente
             int indexImagini = 0; // tine evidenta cu care imagine lucram
-            instance.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
-            for (int i = 0; i < instance.dimensiuneLista; i += numarCopiiImagini)
+            Form1.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
+            for (int i = 0; i < Form1.dimensiuneLista; i += numarCopiiImagini)
             {
                 for (int j = 1; j < numarCopiiImagini; j++) // Copie pentru fiecare imagine si retine indexul pentru fiecare imagine din lista
                 {
@@ -412,11 +533,11 @@ namespace Interfatagrafica
                     //poza.Image = Paste.Images(Minion.Images.Count-1); // imaginea de background este ultima din lista
                     poza.Tag = indexImagini;
                     //AddHandler pictureImg.Click, AddressOf Me.image_clickMinion 'de verificat 
-                    instance.Imagini.Add(poza);
+                    Form1.Imagini.Add(poza);
                 }
                 indexImagini++;
             }
-            instance.Amesteca(ref instance.Imagini);
+            Form1.Amesteca(ref Form1.Imagini);
             if (numarTipImagine > 8)
                 instance.afiseazaImagini(6);
             else
@@ -425,35 +546,35 @@ namespace Interfatagrafica
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        public void imagineClick(Object sender)
+        public void imagineClick(Object sender, EventArgs e)
         {
             PictureBox poza = (PictureBox)sender; //convertim obiectul sender la PictureBox
             int idTag = (int)poza.Tag; // converteste tag-ul la int
-            if (!instance.Alegeri.Contains(poza) && !instance.Potriviri.Contains(idTag))
+            if (!Form1.Alegeri.Contains(poza) && !Form1.Potriviri.Contains(idTag))
             {
                 //formInstance.Computer.Audio.Play(formInstance.Resources.move, AudioPlayMode.Background);
-                instance.Alegeri.Add(poza);
+                Form1.Alegeri.Add(poza);
                 arataimagine(poza);
-                if (instance.Alegeri.Count == instance.nrCopiiImagini)
+                if (Form1.Alegeri.Count == Form1.nrCopiiImagini)
                 {
-                    if (instance.alegePerechi())
+                    if (Form1.alegePerechi())
                     {
                         Thread.Sleep(1000);
-                        instance.scor += 20;
-                        //formInstance.Timer1.Enabled = true;
-                        //formInstance.scorEticheta.Txt = "Score: "+ scor;
-                        for (int j = 0; j < instance.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
+                        Form1.scor += 20;
+                        Form1.Timer1.Enabled = true;
+                        Form1.scorEticheta.Text = "Score: " + Form1.scor;
+                        for (int j = 0; j < Form1.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
                         {
-                            instance.Alegeri[j].Visible = false;
-                            instance.Potriviri.Add(idTag);
+                            Form1.Alegeri[j].Visible = false;
+                            Form1.Potriviri.Add(idTag);
                         }
                         //daca numarul total al indecsilor din Potriviri este egal cu lungimea imaginilor care se afiseaza
                         //atunci jocul s-a terminat
-                        if (instance.Potriviri.Count == instance.dimensiuneLista)
+                        if (Form1.Potriviri.Count == Form1.dimensiuneLista)
                         {
                             //salvare date pentru scriere in fisier
-                            string string_terminare_joc = "Your score: " + instance.scor + "\nYour time: "/*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + instance.greseli;
-                            instance.scor = 0;
+                            string string_terminare_joc = "Your score: " + Form1.scor + "\nYour time: "/*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + Form1.greseli;
+                            Form1.scor = 0;
                             /* formInstance.backsecond.Visible=False;
                              * formInstance.btn1.Visible=true;
                              * formInstance.medium1.Visible=true;
@@ -466,12 +587,12 @@ namespace Interfatagrafica
                         }
                         else
                         {
-                            instance.greseli += 1;
+                            Form1.greseli += 1;
                             Thread.Sleep(1000);
-                            for (int i = 0; i < instance.Alegeri.Count - 1; i++)
-                                ascundeImagini(instance.Alegeri[i]);
+                            for (int i = 0; i < Form1.Alegeri.Count - 1; i++)
+                                ascundeImagini(Form1.Alegeri[i]);
                         }
-                        instance.Alegeri.Clear();
+                        Form1.Alegeri.Clear();
                     }
                 }
             }
@@ -514,19 +635,21 @@ namespace Interfatagrafica
     }
     public class geometrie : interfataPentruCategorii
     {
-        //date membre
-        private Singleton instance = Singleton.Instance;
-        private Form1 formInstance = new Form1();
+        Form1 instance;
+        public geometrie(ref Form1 i)
+        {
+            instance = i;
+        }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
-            instance.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
+            Form1.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
             instance.InitializeazaJoc(); // se sterg datele de joc existente
             int indexImagini = 0; // tine evidenta cu care imagine lucram
-            instance.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
-            for (int i = 0; i < instance.dimensiuneLista; i += numarCopiiImagini)
+            Form1.dimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
+            for (int i = 0; i < Form1.dimensiuneLista; i += numarCopiiImagini)
             {
                 for (int j = 1; j < numarCopiiImagini; j++) // Copie pentru fiecare imagine si retine indexul pentru fiecare imagine din lista
                 {
@@ -534,11 +657,11 @@ namespace Interfatagrafica
                     //poza.Image = Gemoetrie.Images(Minion.Images.Count-1); // imaginea de background este ultima din lista
                     poza.Tag = indexImagini;
                     //AddHandler pictureImg.Click, AddressOf Me.image_clickMinion 'de verificat 
-                    instance.Imagini.Add(poza);
+                    Form1.Imagini.Add(poza);
                 }
                 indexImagini++;
             }
-            instance.Amesteca(ref instance.Imagini);
+            Form1.Amesteca(ref Form1.Imagini);
             if (numarTipImagine > 8)
                 instance.afiseazaImagini(6);
             else
@@ -547,35 +670,35 @@ namespace Interfatagrafica
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        public void imagineClick(Object sender)
+        public void imagineClick(Object sender, EventArgs e)
         {
             PictureBox poza = (PictureBox)sender; //convertim obiectul sender la PictureBox
             int idTag = (int)poza.Tag; // converteste tag-ul la int
-            if (!instance.Alegeri.Contains(poza) && !instance.Potriviri.Contains(idTag))
+            if (!Form1.Alegeri.Contains(poza) && !Form1.Potriviri.Contains(idTag))
             {
                 //formInstance.Computer.Audio.Play(formInstance.Resources.move, AudioPlayMode.Background);
-                instance.Alegeri.Add(poza);
+                Form1.Alegeri.Add(poza);
                 arataimagine(poza);
-                if (instance.Alegeri.Count == instance.nrCopiiImagini)
+                if (Form1.Alegeri.Count == Form1.nrCopiiImagini)
                 {
-                    if (instance.alegePerechi())
+                    if (Form1.alegePerechi())
                     {
                         Thread.Sleep(1000);
-                        instance.scor += 20;
+                        Form1.scor += 20;
                         //formInstance.Timer1.Enabled = true;
                         //formInstance.scorEticheta.Txt = "Score: "+ scor;
-                        for (int j = 0; j < instance.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
+                        for (int j = 0; j < Form1.Alegeri.Count - 1; j++) //ascunde perechile de imagini gasite (dupa 1 secunda) pentru a vedea perechea gasita
                         {
-                            instance.Alegeri[j].Visible = false;
-                            instance.Potriviri.Add(idTag);
+                            Form1.Alegeri[j].Visible = false;
+                            Form1.Potriviri.Add(idTag);
                         }
                         //daca numarul total al indecsilor din Potriviri este egal cu lungimea imaginilor care se afiseaza
                         //atunci jocul s-a terminat
-                        if (instance.Potriviri.Count == instance.dimensiuneLista)
+                        if (Form1.Potriviri.Count == Form1.dimensiuneLista)
                         {
                             //salvare date pentru scriere in fisier
-                            string string_terminare_joc = "Your score: " + instance.scor + "\nYour time: "/*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + instance.greseli;
-                            instance.scor = 0;
+                            string string_terminare_joc = "Your score: " + Form1.scor + "\nYour time: "/*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + Form1.greseli;
+                            Form1.scor = 0;
                             /* formInstance.backsecond.Visible=False;
                              * formInstance.btn1.Visible=true;
                              * formInstance.medium1.Visible=true;
@@ -588,12 +711,12 @@ namespace Interfatagrafica
                         }
                         else
                         {
-                            instance.greseli += 1;
+                            Form1.greseli += 1;
                             Thread.Sleep(1000);
-                            for (int i = 0; i < instance.Alegeri.Count - 1; i++)
-                                ascundeImagini(instance.Alegeri[i]);
+                            for (int i = 0; i < Form1.Alegeri.Count - 1; i++)
+                                ascundeImagini(Form1.Alegeri[i]);
                         }
-                        instance.Alegeri.Clear();
+                        Form1.Alegeri.Clear();
                     }
                 }
             }
@@ -638,23 +761,7 @@ namespace Interfatagrafica
     {
         //instata privata
         private static Singleton instance;
-
-        //date publice
-        public int timpi, nrCopiiImagini, dimensiuneLista, nrSecunde, nrMinute, nrOre, greseli, ab, scor;
-        public string name;
-        public struct rezultat
-        {
-            int scor;
-            DateTime timp;
-            string nume;
-            string gen;
-        };
-        public rezultat[] rezultate = new rezultat[100];
-        public bool usor, medium, greu;
-        public PictureBox back;
-        public List<int> Potriviri;
-        public List<PictureBox> Imagini; // contine imagini
-        public List<PictureBox> Alegeri; // contine imagini alese
+        public Form1 formInstance = new Form1();
 
         //constructor implicit privat
         private Singleton() { }
@@ -668,86 +775,6 @@ namespace Interfatagrafica
                 return instance;
             }
         }
-
-        //metoda de intializare a unor variabile 'globale'
-        public void initializare_date()
-        {
-            usor = false;
-            medium = false;
-            greu = false;
-            scor = 0;
-            ab = 0;
-        }
-
-        //curata jocul
-        public void InitializeazaJoc()
-        {
-            Form1 formInstance = new Form1();
-            if (Imagini != null)
-            {
-                if (Imagini.Count > 0)
-                    for (int i = 0; i < Imagini.Count - 1; i++)
-                        formInstance.Controls.Remove(Imagini.ElementAt(i));
-                Imagini.Clear();
-                if (Alegeri != null)
-                    Alegeri.Clear();
-                if (Potriviri != null)
-                    Potriviri.Clear();
-            }
-        }
-
-        //metoda de amestecare a imaginilor
-        public void Amesteca(ref List<PictureBox> imagini)
-        {
-            Random rnd = new Random();
-            for (int i = 0; i < imagini.Count - 1; i++)
-            {
-                int index = rnd.Next(i, imagini.Count);
-                if (i != index)
-                {
-                    PictureBox img = imagini[i];
-                    imagini[i] = imagini[index];
-                    imagini[index] = img;
-                }
-            }
-        }
-
-        //metoda de afisare a imaginilor
-        public void afiseazaImagini(int numarRanduri)
-        {
-            Form1 formInstance = new Form1();
-            int Xx = 80;
-            int Yy = 90;
-            for (int i = 0; i < Imagini.Count - 1; i++)
-            {
-                Imagini[i].Top = Yy;
-                Imagini[i].Left = Xx;
-                Imagini[i].Size = new System.Drawing.Size(85, 85);
-                formInstance.Controls.Add(Imagini[i]);
-                Imagini[i].Visible = true;
-                Xx += 100;
-                if ((i + 1) % numarRanduri == 0)
-                {
-                    Xx = 80;
-                    Yy += 90;
-                }
-            }
-        }
-
-        //metoda de alegere a perechilor
-        public bool alegePerechi()
-        {
-            int primaAlegere = 0;
-            int aDouaAlegere = 0;
-            for (int i = 0; i < Alegeri.Count - 1; i++)
-            {
-                primaAlegere = (int)Alegeri[i - 1].Tag;
-                aDouaAlegere = (int)Alegeri[i].Tag;
-                if (primaAlegere != aDouaAlegere)
-                    return false;
-            }
-            return true;
-        }
-
+  
     }
 }

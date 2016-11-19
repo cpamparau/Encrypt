@@ -10,7 +10,7 @@ namespace interfataCategorii
     public interface interfataPentruCategorii
     {
         void deseneazaImagine(int numarTipImagine, int numarCopiiImagini);
-        void imagineClick(Object sender);
+        void imagineClick(Object sender, EventArgs e);
         void ascundeImagini(PictureBox imagine);
         void arataimagine(PictureBox imagine);
         void nivelUsor(object sender, EventArgs e);
