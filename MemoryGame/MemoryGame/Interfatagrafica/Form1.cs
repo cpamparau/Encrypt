@@ -14,20 +14,22 @@ namespace Interfatagrafica
 {
     public partial class Form1 : Form
     {
-        public Button btn1;
-        public Button medium1;
-        public Button hard1;
-        public Button back;
-        public Button backsecond;
-        public  Label cronometruEticheta;
-        public Label scorEticheta;
-        minioni m;
-        paste p;
-        geometrie g;
         private Singleton instance = Singleton.Instance;
+        public Button btn1=new Button();
+        public Button medium1 = new Button();
+        public Button hard1 = new Button();
+        public Button back = new Button();
+        public Button backsecond = new Button();
+        public  Label cronometruEticheta = new Label();
+        public Label scorEticheta = new Label();
+        public minioni m=new minioni();
+        public paste p=new paste();
+        public geometrie g=new geometrie();
+        
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         //inapoi la meniul principal
@@ -101,25 +103,21 @@ namespace Interfatagrafica
         {
             initializeazaButoane();
             //butonul usor
-            btn1 = new Button();
-            m = new minioni();
+
             buton_creare_din_cod(ref btn1,"Easy",100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             btn1.Click += new EventHandler(m.nivelUsor);
 
             //nivelul medium
-            medium1 = new Button();
             buton_creare_din_cod(ref medium1, "Medium",320,50);
             medium1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             medium1.Click += new EventHandler(m.nivelMedium);
 
             //nivelul greu
-            hard1 = new Button();
             buton_creare_din_cod(ref hard1, "Hard", 540,50);
             hard1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             hard1.Click += new EventHandler(m.nivelGreu);
 
-            back = new Button();
             buton_creare_din_cod(ref back, "", 320,280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
@@ -130,25 +128,22 @@ namespace Interfatagrafica
         {
             initializeazaButoane();
             //butonul usor
-            btn1 = new Button();
-            p = new paste();
             buton_creare_din_cod(ref btn1, "Easy", 100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
             btn1.Click += new EventHandler(p.nivelUsor);
 
             //butonul medium
-            medium1 = new Button();
+
             buton_creare_din_cod(ref medium1, "Medium", 320, 50);
             medium1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             medium1.Click += new EventHandler(p.nivelMedium);
 
             //nivelul greu
-            hard1 = new Button();
+
             buton_creare_din_cod(ref hard1, "Hard", 540, 50);
             hard1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             hard1.Click += new EventHandler(p.nivelGreu);
 
-            back = new Button();
             buton_creare_din_cod(ref back, "", 320, 280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
@@ -158,26 +153,24 @@ namespace Interfatagrafica
         private void Button3_Click(object sender, EventArgs e)
         {
             initializeazaButoane();
-            g = new geometrie();
-            btn1 = new Button();
 
             //butonul usor
             buton_creare_din_cod(ref btn1, "Easy", 100, 50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
             btn1.Click += new EventHandler(g.nivelUsor);
             //butonul medium
-            medium1 = new Button();
+
             buton_creare_din_cod(ref medium1, "Medium", 320, 50);
             medium1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             medium1.Click += new EventHandler(g.nivelMedium);
 
             //nivelul greu
-            hard1 = new Button();
+
             buton_creare_din_cod(ref hard1, "Hard", 540, 50);
             hard1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
             hard1.Click += new EventHandler(g.nivelGreu);
 
-            back = new Button();
+
             buton_creare_din_cod(ref back, "", 320, 280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
@@ -193,7 +186,7 @@ namespace Interfatagrafica
     public class minioni : interfataPentruCategorii
     {
         //date membre
-        private Singleton instance = Singleton.Instance;
+        private Singleton instance;
         private Interfatagrafica.Form1 formInstance = new Interfatagrafica.Form1();
 
          //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -201,7 +194,6 @@ namespace Interfatagrafica
         private void creare_cronometru()
         {
             //eticheta cronometru
-            formInstance.cronometruEticheta=new Label();
             formInstance.cronometruEticheta.Width=200;
             formInstance.cronometruEticheta.Height=40;
             formInstance.cronometruEticheta.Location = new Point(730,100);
@@ -216,7 +208,6 @@ namespace Interfatagrafica
         private void creare_scor()
         {
              //eticheta scor
-            formInstance.scorEticheta = new Label();
             formInstance.scorEticheta.Width=200;
             formInstance.scorEticheta.Height=40;
             formInstance.scorEticheta.Location=new Point(730,50);
@@ -248,7 +239,6 @@ namespace Interfatagrafica
         private void creare_buton_inapoi()
         {
              //butonul back
-            formInstance.backsecond=new Button();
             formInstance.backsecond.Width=200;
             formInstance.backsecond.Height=40;
             formInstance.backsecond.Location=new Point(730,400);
@@ -262,6 +252,8 @@ namespace Interfatagrafica
 
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
+            instance = Singleton.Instance;
+            instance.Imagini = new List<PictureBox>();
             instance.nrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
             instance.InitializeazaJoc(); // se sterg datele de joc existente
             int indexImagini = 0; // tine evidenta cu care imagine lucram
@@ -271,7 +263,7 @@ namespace Interfatagrafica
                 for (int j = 1; j < numarCopiiImagini; j++) // Copie pentru fiecare imagine si retine indexul pentru fiecare imagine din lista
                 {
                     PictureBox poza = new PictureBox();
-                    //poza.Image = Minion.Images(Minion.Images.Count-1); // imaginea de background este ultima din lista
+                    poza.Image = formInstance.Minion.Images[formInstance.Minion.Images.Count-1]; // imaginea de background este ultima din lista
                     poza.Tag = indexImagini;
                     //AddHandler pictureImg.Click, AddressOf Me.image_clickMinion 'de verificat 
                     instance.Imagini.Add(poza);
@@ -289,6 +281,7 @@ namespace Interfatagrafica
 
         public void imagineClick(Object sender)
         {
+            instance = Singleton.Instance;
             PictureBox poza = (PictureBox)sender; //convertim obiectul sender la PictureBox
             int idTag = (int)poza.Tag; // converteste tag-ul la int
             if (!instance.Alegeri.Contains(poza) && !instance.Potriviri.Contains(idTag))
@@ -321,9 +314,9 @@ namespace Interfatagrafica
                             formInstance.medium1.Visible=true;
                             formInstance.hard1.Visible=true;
                             formInstance.back.Visible=true;
-                            instance.scorEticheta.Text="";
-                            instance.cronometruEticheta.Visible=false;
-                            instance.scorEticheta.Visible=false;
+                            formInstance.scorEticheta.Text="";
+                            formInstance.cronometruEticheta.Visible=false;
+                            formInstance.scorEticheta.Visible=false;
                             
                         }
                         else
@@ -359,12 +352,12 @@ namespace Interfatagrafica
 
         public void nivelUsor(object sender, EventArgs e)
         {
+            deseneazaImagine(4, 2);
             formInstance.Timer1.Start();
             instance.nrSecunde=0;
             instance.greseli=0;
             instance.usor=true;
             instance.timpi=1;
-            deseneazaImagine(4,2);
             creare_buton_inapoi();
             creare_scor();
             adauga_controale_pe_forma();
@@ -376,6 +369,7 @@ namespace Interfatagrafica
 
         public void nivelMedium(object sender, EventArgs e)
         {
+            instance = Singleton.Instance;
             formInstance.Timer1.Start();
             instance.nrSecunde=0;
             instance.greseli=0;
@@ -657,8 +651,6 @@ namespace Interfatagrafica
         };
         public rezultat[] rezultate = new rezultat[100];
         public bool usor, medium, greu;
-        public Button btn1, medium1, hard1, backsecond;
-        public Label scorEticheta, cronometruEticheta;
         public PictureBox back;
         public List<int> Potriviri;
         public List<PictureBox> Imagini; // contine imagini
@@ -691,12 +683,17 @@ namespace Interfatagrafica
         public void InitializeazaJoc()
         {
             Form1 formInstance = new Form1();
-            if (Imagini.Count > 0)
-                for (int i = 0; i < Imagini.Count - 1; i++)
-                    formInstance.Controls.Remove(Imagini.ElementAt(i));
-            Imagini.Clear();
-            Alegeri.Clear();
-            Potriviri.Clear();
+            if (Imagini != null)
+            {
+                if (Imagini.Count > 0)
+                    for (int i = 0; i < Imagini.Count - 1; i++)
+                        formInstance.Controls.Remove(Imagini.ElementAt(i));
+                Imagini.Clear();
+                if (Alegeri != null)
+                    Alegeri.Clear();
+                if (Potriviri != null)
+                    Potriviri.Clear();
+            }
         }
 
         //metoda de amestecare a imaginilor

@@ -7,3 +7,7 @@ D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\LibrarieClas
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\LibrarieClaseFisiere\bin\Debug\LibrarieClaseFisiere.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.dll
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\LibrarieClaseFisiere\bin\Debug\LibrarieClaseFisiere.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\LibrarieClaseFisiere\bin\Debug\LibrarieClaseFisiere.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\LibrarieClaseFisiere\obj\Debug\LibrarieClaseFisiere.pdb

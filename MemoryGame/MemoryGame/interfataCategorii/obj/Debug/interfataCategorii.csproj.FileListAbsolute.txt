@@ -7,3 +7,7 @@ D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\interfataCat
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\interfataCategorii\bin\Debug\interfataCategorii.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\interfataCategorii\obj\Debug\interfataCategorii.dll
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\MemoryGame\MemoryGame\interfataCategorii\obj\Debug\interfataCategorii.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\interfataCategorii\bin\Debug\interfataCategorii.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\interfataCategorii\bin\Debug\interfataCategorii.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\interfataCategorii\obj\Debug\interfataCategorii.dll
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\interfataCategorii\obj\Debug\interfataCategorii.pdb
