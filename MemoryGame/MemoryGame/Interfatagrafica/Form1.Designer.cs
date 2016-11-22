@@ -185,6 +185,8 @@
             // Timer1
             // 
             this.Timer1.Interval = 1000;
+            this.Timer1.Enabled = true;
+            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Form1
             // 
@@ -220,7 +222,7 @@
         public System.Windows.Forms.ImageList Minion;
         public System.Windows.Forms.ImageList Geometry;
         public System.Windows.Forms.ImageList Easter;
-        public System.Windows.Forms.Timer Timer1;
+        internal System.Windows.Forms.Timer Timer1;
     }
 }
 
