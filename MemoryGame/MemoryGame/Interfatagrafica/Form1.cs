@@ -59,16 +59,6 @@ namespace Interfatagrafica
             g = new geometrie(ref f);
         }
 
-
-        public void activare_cronometru()
-        {
-            Timer1.Start();
-        }
-
-        public void oprire_cronometru()
-        {
-            Timer1.Stop();
-        }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void creare_cronometru()
@@ -112,10 +102,12 @@ namespace Interfatagrafica
         public void adauga_controale_pe_forma()
         {
             //adaugare controale
-            Controls.Add(scorEticheta);
-            Controls.Add(cronometruEticheta);
-            Controls.Add(backsecond);
+            Controls.Add(btn1);
+            Controls.Add(medium1);
+            Controls.Add(hard1);
+            Controls.Add(back);
         }
+        
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void creare_buton_inapoi()
@@ -130,7 +122,9 @@ namespace Interfatagrafica
             backsecond.Visible = true;
 
         }
+        
         //curata jocul
+        
         public void InitializeazaJoc()
         {
             if (Imagini != null)
@@ -145,7 +139,9 @@ namespace Interfatagrafica
                     Potriviri.Clear();
             }
         }
+        
         //metoda de intializare a unor variabile 'globale'
+        
         public void initializare_date()
         {
             usor = false;
@@ -154,6 +150,7 @@ namespace Interfatagrafica
             scor = 0;
             ab = 0;
         }
+        
         //inapoi la meniul principal
 
         public void clickInapoi(object sender, EventArgs e)
@@ -174,6 +171,7 @@ namespace Interfatagrafica
         }
 
         //metoda de amestecare a imaginilor
+        
         public void Amesteca(ref List<PictureBox> imagini)
         {
             Random rnd = new Random();
@@ -188,6 +186,7 @@ namespace Interfatagrafica
                 }
             }
         }
+       
         private void initializeazaButoane()
         {
             Button5.Visible = false;
@@ -231,6 +230,7 @@ namespace Interfatagrafica
             }
             return true;
         }
+        
         private void adaugaControale()
         {
             Controls.Add(btn1);
@@ -238,6 +238,7 @@ namespace Interfatagrafica
             Controls.Add(hard1);
             Controls.Add(backsecond);
         }
+        
         private void buton_creare_din_cod(ref Button x, String nivel, int XLocation, int YLocation)
         {
             x.Visible = true;
@@ -249,6 +250,7 @@ namespace Interfatagrafica
             x.FlatStyle = FlatStyle.Flat;
             x.BackgroundImageLayout = ImageLayout.Stretch;
         }
+        
         public void secondBack(object sender, EventArgs e)
         {
             
@@ -273,9 +275,11 @@ namespace Interfatagrafica
             InitializeazaJoc();
             
         }
+       
         private void Button1_Click(object sender, EventArgs e)
         {
             initializeazaButoane();
+            InitializeazaJoc();
              // se sterg datele de joc existente
             //butonul usor
 
@@ -299,10 +303,7 @@ namespace Interfatagrafica
             buton_creare_din_cod(ref back, "", 320,280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
-            Controls.Add(btn1);
-            Controls.Add(medium1);
-            Controls.Add(hard1);
-            Controls.Add(back);
+            adauga_controale_pe_forma();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -318,19 +319,19 @@ namespace Interfatagrafica
             //butonul medium
             medium1 = new Button();
             buton_creare_din_cod(ref medium1, "Medium", 320, 50);
-            medium1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
+            medium1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
             medium1.Click += new EventHandler(p.nivelMedium);
 
             //nivelul greu
             hard1 = new Button();
             buton_creare_din_cod(ref hard1, "Hard", 540, 50);
-            hard1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
+            hard1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
             hard1.Click += new EventHandler(p.nivelGreu);
 
             buton_creare_din_cod(ref back, "", 320, 280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
-            adaugaControale();
+            adauga_controale_pe_forma();
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -340,25 +341,25 @@ namespace Interfatagrafica
             //butonul usor
             btn1 = new Button();
             buton_creare_din_cod(ref btn1, "Easy", 100, 50);
-            btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
+            btn1.BackgroundImage = Interfatagrafica.Properties.Resources.absc;
             btn1.Click += new EventHandler(g.nivelUsor);
+
             //butonul medium
             medium1 = new Button();
             buton_creare_din_cod(ref medium1, "Medium", 320, 50);
-            medium1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
+            medium1.BackgroundImage = Interfatagrafica.Properties.Resources.absc;
             medium1.Click += new EventHandler(g.nivelMedium);
 
             //nivelul greu
             hard1 = new Button();
             buton_creare_din_cod(ref hard1, "Hard", 540, 50);
-            hard1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
+            hard1.BackgroundImage = Interfatagrafica.Properties.Resources.absc;
             hard1.Click += new EventHandler(g.nivelGreu);
-
 
             buton_creare_din_cod(ref back, "", 320, 280);
             back.BackgroundImage = Interfatagrafica.Properties.Resources.backk1;
             back.Click += new EventHandler(clickInapoi);
-            adaugaControale();
+            adauga_controale_pe_forma();
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -386,6 +387,11 @@ namespace Interfatagrafica
             }
             cronometruEticheta.Text = Microsoft.VisualBasic.Strings.Format(nrOre, "00") +":" +Microsoft.VisualBasic.Strings.Format(nrMinute, "00")+":"+Microsoft.VisualBasic.Strings.Format(nrSecunde, "00");
             
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("student: Pamparau Cristian, grupa 3131a\n\nIndrumator: s.l. dr. ing. Gîză-Belciug Felicia");
         }
        }
 }

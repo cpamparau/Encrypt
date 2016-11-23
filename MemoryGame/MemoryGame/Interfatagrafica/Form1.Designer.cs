@@ -94,8 +94,9 @@
             this.Button5.Name = "Button5";
             this.Button5.Size = new System.Drawing.Size(144, 80);
             this.Button5.TabIndex = 6;
-            this.Button5.Text = "Istoric";
+            this.Button5.Text = "Autor";
             this.Button5.UseVisualStyleBackColor = false;
+            this.Button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // Minion
             // 
@@ -184,8 +185,8 @@
             // 
             // Timer1
             // 
-            this.Timer1.Interval = 1000;
             this.Timer1.Enabled = true;
+            this.Timer1.Interval = 1000;
             this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Form1

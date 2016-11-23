@@ -87,7 +87,10 @@ namespace Interfatagrafica
                             instance.scorEticheta.Text = "";
                             instance.cronometruEticheta.Visible = false;
                             instance.scorEticheta.Visible = false;
-
+                            instance.nrSecunde = 0;
+                            instance.timpi = 1;
+                            instance.nrMinute = 0;
+                            instance.Timer1.Stop();
                         }
                     }
                     else
@@ -127,7 +130,7 @@ namespace Interfatagrafica
             instance.Alegeri = new List<PictureBox>();
             instance.Potriviri = new List<int>();
             deseneazaImagine(4, 2);
-            instance.activare_cronometru();
+            instance.Timer1.Start();
             instance.nrSecunde = 0;
             instance.greseli = 0;
             instance.medium = false;
