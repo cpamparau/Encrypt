@@ -15,21 +15,20 @@ namespace Interfatagrafica
 {
     public partial class Form1 : Form
     {
-        public Button btn1;
-        public Button medium1;
-        public Button hard1;
-        public Button back;
-        public Button backsecond ;
-        public Label cronometruEticheta;
-        public Label scorEticheta;
+        static private Button btn1;
+        static private Button medium1;
+        static private Button hard1;
+        static private Button back;
+        Form1 f;
+        static private Button backsecond;
+        static private Label cronometruEticheta;
+        static private Label scorEticheta;
         //public static Control.ControlCollection c;
-        public minioni m;
-        public paste p;
-        public geometrie g;
 
         //date publice
-        public int timpi, nrCopiiImagini, dimensiuneLista, nrSecunde, nrMinute, nrOre, greseli, ab, scor;
-        public string name;
+        static private int  nrCopiiImagini, dimensiuneLista, nrSecunde, nrMinute, nrOre, greseli, ab, scor;
+        private int timpi;
+        static private string name;
         public struct rezultat
         {
             int scor;
@@ -37,12 +36,39 @@ namespace Interfatagrafica
             string nume;
             string gen;
         };
-        public rezultat[] rezultate = new rezultat[100];
-        public bool usor, medium, greu;
+        static private bool usor, medium, greu;
         //public PictureBox back;
-        public List<int> Potriviri;
-        public List<PictureBox> Imagini; // contine imagini
-        public List<PictureBox> Alegeri; // contine imagini alese
+        static private List<int> Potriviri;
+        static public List<PictureBox> Imagini; // contine imagini
+        static private List<PictureBox> Alegeri; // contine imagini alese
+
+
+        //proprietati;
+        static public System.Windows.Forms.Timer timer1 { get { return Timer1; } set { Timer1 = value; } }
+        static public List<int> potriviri { get { return Potriviri; } set { Potriviri = value; } }
+        static public List<PictureBox> imagini { get { return Imagini; } set { Imagini = value; } }
+        static public List<PictureBox> alegeri { get { return Alegeri; } set { Alegeri = value; } }
+        static public bool Usor { get { return usor; } set { Usor = value; } }
+        static public bool Medium { get { return medium; } set { medium = value; } }
+        static public bool Greu { get { return greu; } set { greu = value; } }
+        public int Timpi { get { return timpi; } set { timpi = value; } }
+        static public int NrCopiiImagini { get { return nrCopiiImagini; } set { nrCopiiImagini = value; } }
+        static public int DimensiuneLista { get { return dimensiuneLista; } set { dimensiuneLista = value; } }
+        static public int NrSecunde { get{return nrSecunde;} set{nrSecunde=value;}}
+        static public int NrMinute { get { return nrMinute; } set { nrMinute = value; } }
+        static public int NrOre { get { return nrOre; } set { nrOre = value; } }
+        static public int Greseli { get { return greseli; } set { greseli = value; } }
+        static public int Ab { get; set; }
+        static public int Scor { get; set; }
+        static public string Name { get; set; }
+        static public Button Btn1 { get { return btn1; } set { btn1 = value; } }
+        static public Button Medium1 { get { return medium1; } set { medium1 = value; } }
+        static public Button Hard1 { get { return hard1; } set { hard1 = value; } }
+        static public Button Back { get { return back; } set { back = value; } }
+        static public Button Backsecond { get { return backsecond; } set { backsecond = value; } }
+        static public Label CronometruEticheta { get { return cronometruEticheta; } set { cronometruEticheta = value; } }
+        static public Label ScorEticheta { get { return scorEticheta; } set { scorEticheta = value; } }
+        //constructor implicit
         public Form1()
         {
             InitializeComponent();
@@ -53,10 +79,7 @@ namespace Interfatagrafica
             backsecond= new Button();
             cronometruEticheta = new Label();
             scorEticheta=new Label();
-            Form1 f = this;
-            m=new minioni(ref f);
-            p = new paste(ref f);
-            g = new geometrie(ref f);
+            f = this;
         }
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -172,17 +195,17 @@ namespace Interfatagrafica
 
         //metoda de amestecare a imaginilor
         
-        public void Amesteca(ref List<PictureBox> imagini)
+        public void Amesteca(ref List<PictureBox> img)
         {
             Random rnd = new Random();
-            for (int i = 0; i < imagini.Count - 1; i++)
+            for (int i = 0; i < img.Count - 1; i++)
             {
-                int index = rnd.Next(i, imagini.Count);
+                int index = rnd.Next(i, img.Count);
                 if (i != index)
                 {
-                    PictureBox img = imagini[i];
-                    imagini[i] = imagini[index];
-                    imagini[index] = img;
+                    PictureBox imgf = img[i];
+                    img[i] = img[index];
+                    img[index] = imgf;
                 }
             }
         }
@@ -282,7 +305,7 @@ namespace Interfatagrafica
             InitializeazaJoc();
              // se sterg datele de joc existente
             //butonul usor
-
+            Nivele m = new Nivele(Minion, ref f);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1,"Easy",100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
@@ -311,6 +334,7 @@ namespace Interfatagrafica
             initializeazaButoane();
             InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
+            Nivele p = new Nivele(Easter, ref f);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1, "Easy", 100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
@@ -339,6 +363,7 @@ namespace Interfatagrafica
             initializeazaButoane();
             InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
+            Nivele g = new Nivele(Geometry, ref f);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1, "Easy", 100, 50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.absc;
@@ -392,6 +417,11 @@ namespace Interfatagrafica
         private void Button5_Click(object sender, EventArgs e)
         {
             MessageBox.Show("student: Pamparau Cristian, grupa 3131a\n\nIndrumator: s.l. dr. ing. Gîză-Belciug Felicia");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
        }
 }

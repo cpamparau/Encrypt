@@ -23,9 +23,7 @@ D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Inte
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\Interfatagrafica.exe
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\Interfatagrafica.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\interfataCategorii.dll
-D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\LibrarieClaseFisiere.dll
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\interfataCategorii.pdb
-D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\LibrarieClaseFisiere.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.csprojResolveAssemblyReference.cache
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.Form1.resources
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.Properties.Resources.resources

@@ -5,21 +5,21 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace LibrarieClaseFisiere
+namespace Interfatagrafica
 {
-    public class ClasaFisiere
+    class ClasaFisiere
     {
-       //date membre private
-       private string numeFisier;
-       private TextReader read;
-       private TextWriter write;
+        //date membre private
+        private string numeFisier;
+        private TextReader read;
+        private TextWriter write;
 
         //constructor implicit
         public ClasaFisiere()
-       {
-           numeFisier = "NEPRCIZAT";
-       }
-        
+        {
+            numeFisier = "NEPRCIZAT";
+        }
+
         //proprietatea numeFisier
         public string NumeFisier
         {
@@ -43,7 +43,7 @@ namespace LibrarieClaseFisiere
             }
             catch (Exception e)
             {
-                throw (e);
+                rezultat = false;
             }
             return rezultat;
         }
@@ -58,7 +58,7 @@ namespace LibrarieClaseFisiere
             }
             catch (Exception e)
             {
-                throw (e);
+                rezultat = false;
             }
             return rezultat;
         }

@@ -39,7 +39,7 @@
             this.Button1 = new System.Windows.Forms.Button();
             this.Geometry = new System.Windows.Forms.ImageList(this.components);
             this.Easter = new System.Windows.Forms.ImageList(this.components);
-            this.Timer1 = new System.Windows.Forms.Timer(this.components);
+            Form1.Timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,9 +185,9 @@
             // 
             // Timer1
             // 
-            this.Timer1.Enabled = true;
-            this.Timer1.Interval = 1000;
-            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            Form1.Timer1.Enabled = true;
+            Form1.Timer1.Interval = 1000;
+            Form1.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Form1
             // 
@@ -205,8 +205,9 @@
             this.Controls.Add(this.Button1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            Form1.Name = "Form1";
             this.Text = "Joc de Memorie";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -223,7 +224,7 @@
         public System.Windows.Forms.ImageList Minion;
         public System.Windows.Forms.ImageList Geometry;
         public System.Windows.Forms.ImageList Easter;
-        internal System.Windows.Forms.Timer Timer1;
+        static internal System.Windows.Forms.Timer Timer1;
     }
 }
 
