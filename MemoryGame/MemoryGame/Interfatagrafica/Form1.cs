@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Timers;
 
 
 namespace Interfatagrafica
@@ -28,7 +29,6 @@ namespace Interfatagrafica
         //date publice
         static private int  nrCopiiImagini, dimensiuneLista, nrSecunde, nrMinute, nrOre, greseli, ab, scor;
         private int timpi;
-        static private string name;
         public struct rezultat
         {
             int scor;
@@ -60,7 +60,6 @@ namespace Interfatagrafica
         static public int Greseli { get { return greseli; } set { greseli = value; } }
         static public int Ab { get; set; }
         static public int Scor { get; set; }
-        static public string Name { get; set; }
         static public Button Btn1 { get { return btn1; } set { btn1 = value; } }
         static public Button Medium1 { get { return medium1; } set { medium1 = value; } }
         static public Button Hard1 { get { return hard1; } set { hard1 = value; } }
@@ -420,12 +419,28 @@ namespace Interfatagrafica
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("student: Pamparau Cristian, grupa 3131a\n\nIndrumator: s.l. dr. ing. Gîză-Belciug Felicia");
+            //MessageBox.Show("student: Pamparau Cristian, grupa 3131a\n\nIndrumator: s.l. dr. ing. Gîză-Belciug Felicia");
+            ClasaFisiere cl = new ClasaFisiere();
+            cl.NumeFisier = "istoric.txt";
+            string citit="";
+            if (cl.deschideFisier())
+            {
+
+                citit = "NUME     SCOR     TIMP   GRESELI    DATA    ORA    CATEGORIE\n";
+                do
+                {
+                    citit += cl.citesteLinie();
+                } while (cl.citesteLinie() == string.Empty);
+                MessageBox.Show(citit);
+            }
+            else
+                MessageBox.Show("FISIERUL nu exista!!");
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
        }
 }

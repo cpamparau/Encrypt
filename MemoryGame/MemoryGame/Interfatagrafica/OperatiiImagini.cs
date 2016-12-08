@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
+
 namespace Interfatagrafica
 {
     class OperatiiImagini
@@ -16,7 +17,7 @@ namespace Interfatagrafica
         //constructor implicit
         public OperatiiImagini()
         {
-            
+          
             ilGrupajImagini = new ImageList();
         }
         //constructor cu parametri
@@ -77,9 +78,24 @@ namespace Interfatagrafica
                         //atunci jocul s-a terminat
                         if (Form1.potriviri.Count == Form1.DimensiuneLista)
                         {
+                            string nume_categorie = "";
+                            string nume = "";
+                            if (ilGrupajImagini == Form1.ff.Minion)
+                                nume_categorie = "Minion";
+                            else if (ilGrupajImagini == Form1.ff.Easter)
+                                nume_categorie = "Paste";
+                            else
+                                nume_categorie="Geometrie";
+                            Form1.timer1.Stop();
+                            DateTime data = new DateTime();
+                            nume = Microsoft.VisualBasic.Interaction.InputBox("Introduceti numele dvs", "", "NEPRECIZAT");
                             //salvare date pentru scriere in fisier
                             string string_terminare_joc = "Your score: " + Form1.Scor + "\nYour time: " + Form1.CronometruEticheta.Text + "\nMistakes :" + Form1.Greseli;
-                            
+                            bool deschiderefis = files.deschideScriereInFisier("istoric.txt");
+                            MessageBox.Show(string_terminare_joc);
+                            if (deschiderefis)
+                                MessageBox.Show(files.scrieInFisier(nume + " " + Form1.Scor + " " + Form1.CronometruEticheta.Text + " " + Form1.Greseli + " " + DateTime.Now +" "+ nume_categorie+"\n"));
+                            files.inchideScriereFisier();
                             Form1.Scor = 0;
                             Form1.Backsecond.Visible = false;
                             Form1.Btn1.Visible = true;
@@ -92,12 +108,8 @@ namespace Interfatagrafica
                             Form1.NrSecunde = 0;
                             Form1.ff.Timpi = 1;
                             Form1.NrMinute = 0;
-                            Form1.timer1.Stop();
-                            Form1.Name = Microsoft.VisualBasic.Interaction.InputBox("Introduceti numele dvs", "", "NEPRECIZAT");
-                            bool deschiderefis = files.deschideScriereInFisier();
-                            if (deschiderefis)
-                                MessageBox.Show(files.scrieInFisier(Form1.Name + " " + Form1.Scor + " " + Form1.CronometruEticheta.Text + " " + Form1.Greseli + " " + ilGrupajImagini.ToString()));
                             
+                           
                         }
                     }
                     else

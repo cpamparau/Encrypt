@@ -9,28 +9,33 @@ namespace Interfatagrafica
 {
     class ClasaFisiere
     {
-        //date membre private
-        private string numeFisier;
+       // date membre private
+        private string nume_fisier;
         private TextReader read;
         private TextWriter write;
 
-        //constructor implicit
-        public ClasaFisiere()
-        {
-            numeFisier = "NEPRCIZAT";
-        }
-
-        //proprietatea numeFisier
-        public string NumeFisier
+        // Proprietati
+        public string Nume_fisier
         {
             get
             {
-                return numeFisier;
+                return nume_fisier;
             }
             set
             {
-                numeFisier = value;
+                nume_fisier = value;
             }
+        }
+
+        public string NumeFisier
+        {
+            get { return nume_fisier; }
+            set { nume_fisier = value; }
+        }
+        // constructor implicit
+        public ClasaFisiere()
+        {
+            
         }
         // metoda de deschidere a fisierului
         public bool deschideFisier()
@@ -38,27 +43,27 @@ namespace Interfatagrafica
             bool rezultat = false;
             try
             {
-                read = new StreamReader(numeFisier);
+                read = new StreamReader(nume_fisier);
                 rezultat = true;
             }
             catch (Exception e)
             {
-                rezultat = false;
+                return false;
             }
             return rezultat;
         }
         //metoda de deschidere a fisierului
-        public bool deschideScriereInFisier()
+        public bool deschideScriereInFisier(string name)
         {
             bool rezultat = false;
             try
             {
-                write = new StreamWriter(numeFisier);
+                write = new StreamWriter(name, true);
                 rezultat = true;
             }
             catch (Exception e)
             {
-                rezultat = false;
+                throw (e);
             }
             return rezultat;
         }
@@ -68,13 +73,12 @@ namespace Interfatagrafica
             string rezultat = "";
             try
             {
-               
-                write.WriteLine(sir_de_scris_in_fisier);
-                rezultat = "Scriere cu succes in fisierul " + numeFisier;
+                write.Write(sir_de_scris_in_fisier);
+                rezultat = "Scriere cu succes in fisierul " + nume_fisier;
             }
             catch (Exception e)
             {
-                rezultat = "EROARE scriere in fisier : " + e.Message;
+                rezultat = "EROARE scriere in fisier!";
             }
             return rezultat;
         }
