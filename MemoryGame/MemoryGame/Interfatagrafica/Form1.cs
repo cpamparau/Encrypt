@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using interfataCategorii;
+
 
 namespace Interfatagrafica
 {
@@ -19,7 +19,7 @@ namespace Interfatagrafica
         static private Button medium1;
         static private Button hard1;
         static private Button back;
-        Form1 f;
+        static Form1 f;
         static private Button backsecond;
         static private Label cronometruEticheta;
         static private Label scorEticheta;
@@ -46,9 +46,9 @@ namespace Interfatagrafica
         //proprietati;
         static public System.Windows.Forms.Timer timer1 { get { return Timer1; } set { Timer1 = value; } }
         static public List<int> potriviri { get { return Potriviri; } set { Potriviri = value; } }
-        static public List<PictureBox> imagini { get { return Imagini; } set { Imagini = value; } }
+        //static public List<PictureBox> imagini { get; set; }
         static public List<PictureBox> alegeri { get { return Alegeri; } set { Alegeri = value; } }
-        static public bool Usor { get { return usor; } set { Usor = value; } }
+        static public bool Usor { get { return usor; } set { usor = value; } }
         static public bool Medium { get { return medium; } set { medium = value; } }
         static public bool Greu { get { return greu; } set { greu = value; } }
         public int Timpi { get { return timpi; } set { timpi = value; } }
@@ -82,6 +82,10 @@ namespace Interfatagrafica
             f = this;
         }
 
+        static public Form1 ff
+        {
+            get { return f; }
+        }
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         public void creare_cronometru()
@@ -305,7 +309,7 @@ namespace Interfatagrafica
             InitializeazaJoc();
              // se sterg datele de joc existente
             //butonul usor
-            Nivele m = new Nivele(Minion, ref f);
+            Nivele m = new Nivele(Minion);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1,"Easy",100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.chenar;
@@ -334,7 +338,7 @@ namespace Interfatagrafica
             initializeazaButoane();
             InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
-            Nivele p = new Nivele(Easter, ref f);
+            Nivele p = new Nivele(Easter);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1, "Easy", 100,50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.smile;
@@ -363,7 +367,7 @@ namespace Interfatagrafica
             initializeazaButoane();
             InitializeazaJoc(); // se sterg datele de joc existente
             //butonul usor
-            Nivele g = new Nivele(Geometry, ref f);
+            Nivele g = new Nivele(Geometry);
             btn1 = new Button();
             buton_creare_din_cod(ref btn1, "Easy", 100, 50);
             btn1.BackgroundImage = Interfatagrafica.Properties.Resources.absc;

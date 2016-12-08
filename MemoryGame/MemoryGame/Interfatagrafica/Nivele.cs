@@ -14,9 +14,9 @@ namespace Interfatagrafica
         OperatiiImagini x;
         
 
-        public Nivele(ImageList given, ref Form1 i)
+        public Nivele(ImageList given)
         {
-            x = new OperatiiImagini(given, ref i);
+            x = new OperatiiImagini(given);
         }
 
         public void nivelUsor(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace Interfatagrafica
             Form1.Medium = false;
             Form1.Greu = false;
             Form1.Usor = true;
-            x.instance_f1.Timpi = 1;
+            Form1.ff.Timpi = 1;
 
             //eticheta scor
             Form1.ScorEticheta.Width = 200;
@@ -47,7 +47,7 @@ namespace Interfatagrafica
             Form1.Backsecond.Location = new Point(730, 400);
             Form1.Backsecond.Text = "Back";
             Form1.Backsecond.Font = new Font("Arial", 18, FontStyle.Bold);
-            Form1.Backsecond.Click += new EventHandler(x.instance_f1.secondBack);
+            Form1.Backsecond.Click += new EventHandler(Form1.ff.secondBack);
             Form1.Backsecond.Visible = true;
 
             //eticheta cronometru
@@ -60,15 +60,15 @@ namespace Interfatagrafica
             Form1.CronometruEticheta.Visible = true;
 
             //adaugare controale
-            x.instance_f1.Controls.Add(Form1.ScorEticheta);
-            x.instance_f1.Controls.Add(Form1.CronometruEticheta);
-            x.instance_f1.Controls.Add(Form1.Backsecond);
+            Form1.ff.Controls.Add(Form1.ScorEticheta);
+            Form1.ff.Controls.Add(Form1.CronometruEticheta);
+            Form1.ff.Controls.Add(Form1.Backsecond);
 
             Form1.Btn1.Visible = false;
             Form1.Medium1.Visible = false;
             Form1.Hard1.Visible = false;
             Form1.Back.Visible = false;
-            Form1.timer1.Enabled = true;
+            
         }
 
         public void nivelMedium(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace Interfatagrafica
             Form1.Medium = true;
             Form1.Greu = false;
             Form1.Usor = false;
-            x.instance_f1.Timpi = 1;
+            Form1.ff.Timpi = 1;
 
             //eticheta scor
             Form1.ScorEticheta.Width = 200;
@@ -99,7 +99,7 @@ namespace Interfatagrafica
             Form1.Backsecond.Location = new Point(730, 400);
             Form1.Backsecond.Text = "Back";
             Form1.Backsecond.Font = new Font("Arial", 18, FontStyle.Bold);
-            Form1.Backsecond.Click += new EventHandler(x.instance_f1.secondBack);
+            Form1.Backsecond.Click += new EventHandler(Form1.ff.secondBack);
             Form1.Backsecond.Visible = true;
 
             //eticheta cronometru
@@ -112,29 +112,29 @@ namespace Interfatagrafica
             Form1.CronometruEticheta.Visible = true;
 
             //adaugare controale
-            x.instance_f1.Controls.Add(Form1.ScorEticheta);
-            x.instance_f1.Controls.Add(Form1.CronometruEticheta);
-            x.instance_f1.Controls.Add(Form1.Backsecond);
+            Form1.ff.Controls.Add(Form1.ScorEticheta);
+            Form1.ff.Controls.Add(Form1.CronometruEticheta);
+            Form1.ff.Controls.Add(Form1.Backsecond);
 
             Form1.Btn1.Visible = false;
             Form1.Medium1.Visible = false;
             Form1.Hard1.Visible = false;
             Form1.Back.Visible = false;
-            Form1.timer1.Enabled = true;
+          
         }
 
         public void nivelGreu(object sender, EventArgs e)
         {
             Form1.alegeri = new List<PictureBox>();
             Form1.potriviri = new List<int>();
-            x.deseneazaImagine(8, 2);
+            x.deseneazaImagine(12, 2);
             Form1.timer1.Start();
             Form1.NrSecunde = 0;
             Form1.Greseli = 0;
             Form1.Medium = true;
             Form1.Greu = false;
             Form1.Usor = false;
-            x.instance_f1.Timpi = 1;
+            Form1.ff.Timpi = 1;
 
             //eticheta scor
             Form1.ScorEticheta.Width = 200;
@@ -151,7 +151,7 @@ namespace Interfatagrafica
             Form1.Backsecond.Location = new Point(730, 400);
             Form1.Backsecond.Text = "Back";
             Form1.Backsecond.Font = new Font("Arial", 18, FontStyle.Bold);
-            Form1.Backsecond.Click += new EventHandler(x.instance_f1.secondBack);
+            Form1.Backsecond.Click += new EventHandler(Form1.ff.secondBack);
             Form1.Backsecond.Visible = true;
 
             //eticheta cronometru
@@ -164,15 +164,15 @@ namespace Interfatagrafica
             Form1.CronometruEticheta.Visible = true;
 
             //adaugare controale
-            x.instance_f1.Controls.Add(Form1.ScorEticheta);
-            x.instance_f1.Controls.Add(Form1.CronometruEticheta);
-            x.instance_f1.Controls.Add(Form1.Backsecond);
+            Form1.ff.Controls.Add(Form1.ScorEticheta);
+            Form1.ff.Controls.Add(Form1.CronometruEticheta);
+            Form1.ff.Controls.Add(Form1.Backsecond);
 
             Form1.Btn1.Visible = false;
             Form1.Medium1.Visible = false;
             Form1.Hard1.Visible = false;
             Form1.Back.Visible = false;
-            Form1.timer1.Enabled = true;
+        
         }
     }
 }

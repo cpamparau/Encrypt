@@ -68,8 +68,9 @@ namespace Interfatagrafica
             string rezultat = "";
             try
             {
-                write.Write(sir_de_scris_in_fisier);
-                rezultat = "Scriere cu succes in fisierul " + sir_de_scris_in_fisier;
+               
+                write.WriteLine(sir_de_scris_in_fisier);
+                rezultat = "Scriere cu succes in fisierul " + numeFisier;
             }
             catch (Exception e)
             {

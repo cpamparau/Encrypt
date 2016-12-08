@@ -11,7 +11,7 @@ namespace Interfatagrafica
     class OperatiiImagini
     {
         ImageList ilGrupajImagini;
-        Form1 instance;
+        ClasaFisiere files = new ClasaFisiere();
 
         //constructor implicit
         public OperatiiImagini()
@@ -20,20 +20,15 @@ namespace Interfatagrafica
             ilGrupajImagini = new ImageList();
         }
         //constructor cu parametri
-        public OperatiiImagini(ImageList x, ref Form1 i)
+        public OperatiiImagini(ImageList x)
         {
             ilGrupajImagini = x;
-            instance = i;
+            files.NumeFisier = "istoric.txt";
         }
 
-        public Form1 instance_f1
-        {
-            get { return instance; } 
-            set {instance=value;}
-        }
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
-            Form1.imagini = new List<PictureBox>();
+            Form1.Imagini = new List<PictureBox>();
             Form1.NrCopiiImagini = numarCopiiImagini; //deseneazaImagine(4,2) unde 2 reprezinta numarul de copii
             int indexImagini = 0; // tine evidenta cu care imagine lucram
             Form1.DimensiuneLista = numarTipImagine * numarCopiiImagini; // punem imaginile intr-un PictureBox si copiile cu care lucram
@@ -45,15 +40,15 @@ namespace Interfatagrafica
                     poza.Image = ilGrupajImagini.Images[ilGrupajImagini.Images.Count - 1]; // imaginea de background este ultima din lista
                     poza.Tag = indexImagini;
                     poza.Click += new EventHandler(imagineClick);
-                    Form1.imagini.Add(poza);
+                    Form1.Imagini.Add(poza);
                 }
                 indexImagini++;
             }
-            instance.Amesteca(ref Form1.Imagini);
+            Form1.ff.Amesteca(ref Form1.Imagini);
             if (numarTipImagine > 8)
-                instance.afiseazaImagini(6);
+                Form1.ff.afiseazaImagini(6);
             else
-                instance.afiseazaImagini(4);
+                Form1.ff.afiseazaImagini(4);
         }
 
         public void imagineClick(Object sender, EventArgs e)
@@ -66,8 +61,8 @@ namespace Interfatagrafica
                 Form1.alegeri.Add(poza);
                 arataimagine(poza);
                 if (Form1.alegeri.Count == Form1.NrCopiiImagini)
-                {
-                    if (instance.alegePerechi())
+               {
+                    if (Form1.ff.alegePerechi())
                     {
                         Thread.Sleep(1000);
                         Form1.Scor += 20;
@@ -83,7 +78,8 @@ namespace Interfatagrafica
                         if (Form1.potriviri.Count == Form1.DimensiuneLista)
                         {
                             //salvare date pentru scriere in fisier
-                            string string_terminare_joc = "Your score: " + Form1.Scor + "\nYour time: " /*instance.cronometruEticheta.Txt*/ + "\nMistakes :" + Form1.Greseli;
+                            string string_terminare_joc = "Your score: " + Form1.Scor + "\nYour time: " + Form1.CronometruEticheta.Text + "\nMistakes :" + Form1.Greseli;
+                            
                             Form1.Scor = 0;
                             Form1.Backsecond.Visible = false;
                             Form1.Btn1.Visible = true;
@@ -94,9 +90,14 @@ namespace Interfatagrafica
                             Form1.CronometruEticheta.Visible = false;
                             Form1.ScorEticheta.Visible = false;
                             Form1.NrSecunde = 0;
-                            instance.Timpi = 1;
+                            Form1.ff.Timpi = 1;
                             Form1.NrMinute = 0;
                             Form1.timer1.Stop();
+                            Form1.Name = Microsoft.VisualBasic.Interaction.InputBox("Introduceti numele dvs", "", "NEPRECIZAT");
+                            bool deschiderefis = files.deschideScriereInFisier();
+                            if (deschiderefis)
+                                MessageBox.Show(files.scrieInFisier(Form1.Name + " " + Form1.Scor + " " + Form1.CronometruEticheta.Text + " " + Form1.Greseli + " " + ilGrupajImagini.ToString()));
+                            
                         }
                     }
                     else
@@ -120,7 +121,7 @@ namespace Interfatagrafica
         public void arataimagine(PictureBox imagine)
         {
             imagine.Image = ilGrupajImagini.Images[Convert.ToInt32(imagine.Tag)];
-            instance.Refresh();
+            Form1.ff.Refresh(); //neaparata nevoie de o instanta a Formei principale
         }
     }
 }
