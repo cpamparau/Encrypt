@@ -9,24 +9,46 @@ using System.Threading.Tasks;
 
 namespace Interfatagrafica
 {
+   /// <summary>
+   /// Clasa va prelucra imaginile dintr-un ImageList si se va crea o instanta a acesteia in clasa Nivele
+   /// </summary>
     class OperatiiImagini
     {
+        /// <summary>
+        /// Variabila de tip ImageList care contine imaginile pentru care se vor executa operatiile 
+        /// din clasa curenta(metodele)
+        /// </summary>
         ImageList ilGrupajImagini;
+        /// <summary>
+        /// Instanta a clasei care lucreaza cu fisiere prin care se vor permite operatiile cu fisiere
+        /// doar prin accesarea unor simple metode ale acestei clase. Pentru informatii suplimentare,
+        /// accesati documentatia clasei 'ClasaFisiere'
+        /// </summary>
         ClasaFisiere files = new ClasaFisiere();
 
-        //constructor implicit
+        /// <summary>
+        /// Constructor implicit al clasei curente care ceeaza pentru metoda ilGrupajImagini un obiect nou de tip ImageList
+        /// </summary>
         public OperatiiImagini()
         {
           
             ilGrupajImagini = new ImageList();
         }
-        //constructor cu parametri
+        /// <summary>
+        /// Constructor cu parametri pentru clasa curenta; in acest constructor, se va seta numele fisierului care va contine
+        /// istoricul jocului la "istoric.txt"; NU se va negocia acest nume al fisierului cu utilizatorul!!!!
+        /// </summary>
+        /// <param name="x">Variabila de tip ImageList care va fi atribuita datei ilGrupajImagini</param>
         public OperatiiImagini(ImageList x)
         {
             ilGrupajImagini = x;
             files.NumeFisier = "istoric.txt";
         }
-
+        /// <summary>
+        /// Metoda care deseneaza Imaginile pe forma
+        /// </summary>
+        /// <param name="numarTipImagine">Numarul de imagini dispuse pe coloana</param>
+        /// <param name="numarCopiiImagini">Numarul de iamgini dispuse pe linie</param>
         public void deseneazaImagine(int numarTipImagine, int numarCopiiImagini)
         {
             Form1.Imagini = new List<PictureBox>();
@@ -51,7 +73,11 @@ namespace Interfatagrafica
             else
                 Form1.ff.afiseazaImagini(4);
         }
-
+        /// <summary>
+        /// Metoda care trateaza click-ul pe o imagine si verifica daca imaginea curenta selectata este identica sau nu cu cea anterioara
+        /// </summary>
+        /// <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+        /// <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
         public void imagineClick(Object sender, EventArgs e)
         {
             PictureBox poza = (PictureBox)sender; //convertim obiectul sender la PictureBox
@@ -123,13 +149,20 @@ namespace Interfatagrafica
                 }
             }
         }
-
+        /// <summary>
+        /// Metoda care ascunde imaginea, in sensul ca intr-o pozitie anume, se va afisa imaginea generica cu semnul intrebarii,
+        /// adica ultima imagine din controlul ilGrupajImagini
+        /// </summary>
+        /// <param name="imagine">Variabila de tip PictureBox care reprezinta imaginea curenta care va fi 'ascunsa'</param>
         public void ascundeImagini(PictureBox imagine)
         {
             //inlocuieste imaginea curenta cu cea anterioara(cea de background care ascunde imaginile)
             imagine.Image = ilGrupajImagini.Images[ilGrupajImagini.Images.Count - 1];
         }
-
+        /// <summary>
+        /// Metoda care afiseaza in imaginea unde s-a efectuat click, imaginea specificata ca parametru
+        /// </summary>
+        /// <param name="imagine">Variabila de tip PictureBox care reprezinta imaginea care va fi afisata</param>
         public void arataimagine(PictureBox imagine)
         {
             imagine.Image = ilGrupajImagini.Images[Convert.ToInt32(imagine.Tag)];

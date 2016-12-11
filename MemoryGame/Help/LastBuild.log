@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2016.9.17.0" projectFile="D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\FirstDocumentation.shfbproj" started="11.12.2016 12:21:23">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+    Last step completed in 00:00:00,1000
+</buildStep>
+<buildStep step="Failed">
+
+SHFB: Error BE0037: Could not find the path to the HTML Help 1 compiler. See the error number topic in the help file for details.
+
+   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.FindTools()
+   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.Build()
+
+</buildStep>
+</shfbBuild>

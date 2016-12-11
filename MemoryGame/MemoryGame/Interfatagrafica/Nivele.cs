@@ -8,17 +8,32 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace Interfatagrafica
-{
+{ 
+    /// <summary>
+    /// Aceasta clasa va Avea ca si metoda membra un obiect de tipul clasei OperatiiImagini; in constructoul clasei, se va specifica
+    /// tipul de ImageList cu care se va lucra(Minion/Easter/Geometry). Clasa are trei metode cu nume sugestive care nu necesita explicatii
+    /// suplimentare : nivelUsor, nivelMedium, nivelGreu, metode care vor fi asociate ca si evenimente unor controale
+    /// </summary>
     class Nivele
     {
+        /// <summary>
+        /// Obiect de tip OperatiiImagini care permite accesul intr-un nivel de joc a operatiilor cu imagini : click de imagine, desenarea imaginiilor,
+        /// ascunderea imaginilor etc. Pentru informatii optionale, se poate accesa documentatia clasei 'ÓperatiiImagini'
+        /// </summary>
         OperatiiImagini x;
-        
-
+        /// <summary>
+        /// Constructorul cu parametri in care se specifica o lista de imagini, adica implicit cateogoria de joc
+        /// </summary>
+        /// <param name="given">Lista de imagini(variabila de tip ImageList) din pentru care se vor trata cele 3 nivele de joc</param>
         public Nivele(ImageList given)
         {
             x = new OperatiiImagini(given);
         }
-
+        /// <summary>
+        /// Metoda publica de tratare a nivelului Easy
+        /// </summary>
+        /// <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+        /// <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
         public void nivelUsor(object sender, EventArgs e)
         {
             Form1.alegeri = new List<PictureBox>();
@@ -70,7 +85,11 @@ namespace Interfatagrafica
             Form1.Back.Visible = false;
             
         }
-
+        /// <summary>
+        /// Metoda publica de tratare a nivelului Medium
+        /// </summary>
+        /// <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+        /// <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
         public void nivelMedium(object sender, EventArgs e)
         {
             Form1.alegeri = new List<PictureBox>();
@@ -122,7 +141,11 @@ namespace Interfatagrafica
             Form1.Back.Visible = false;
           
         }
-
+        /// <summary>
+        /// Metoda publica de tratare a nivelului Hard
+        /// </summary>
+        /// <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+        /// <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
         public void nivelGreu(object sender, EventArgs e)
         {
             Form1.alegeri = new List<PictureBox>();

@@ -207,23 +207,51 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Joc de Memorie";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        /// <summary>
+        /// Instanta privata a Butonului 1
+        /// </summary>
         private System.Windows.Forms.Button Button1;
+        /// <summary>
+        /// Instanta privata a Butonului 2
+        /// </summary>
         private System.Windows.Forms.Button Button2;
+        /// <summary>
+        /// Instanta privata a Butonului 3
+        /// </summary>
         private System.Windows.Forms.Button Button3;
+        /// <summary>
+        /// Instanta privata a Butonului 4
+        /// </summary>
         private System.Windows.Forms.Button Button4;
+        /// <summary>
+        /// Instanta internal a Butonului 5
+        /// </summary>
         internal System.Windows.Forms.Button Button5;
+        /// <summary>
+        /// Instanta internal pentru controlul PictureBox1
+        /// </summary>
         internal System.Windows.Forms.PictureBox PictureBox1;
+        /// <summary>
+        /// Instanta interna a controlului Minion de tip ImageList
+        /// </summary>
         public System.Windows.Forms.ImageList Minion;
+        /// <summary>
+        /// Instanta publica a controlului Geometry de tip ImageList
+        /// </summary>
         public System.Windows.Forms.ImageList Geometry;
+        /// <summary>
+        /// Instanta publica a controlului Easter de tip ImageList
+        /// </summary>
         public System.Windows.Forms.ImageList Easter;
+        /// <summary>
+        /// Instanta statica interna a controlului Timer1 de tip Timer
+        /// </summary>
         static internal System.Windows.Forms.Timer Timer1;
     }
 }

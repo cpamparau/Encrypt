@@ -27,3 +27,5 @@ D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Inte
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\Interfatagrafica.pdb
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.exe
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.pdb
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\bin\Debug\Interfatagrafica.XML
+D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\Interfatagrafica\obj\Debug\Interfatagrafica.csprojResolveAssemblyReference.cache

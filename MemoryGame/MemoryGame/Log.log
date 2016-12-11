@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder" version="1.9.7.0" projectFile="D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\MemoryGame\FirstDocumentation.shfbproj" started="11.12.2016 12:11:38">
+<buildStep step="Initializing">
+Finding tools...
+Found Sandcastle tools in &#39;C:\Program Files (x86)\Sandcastle\&#39;
+    Last step completed in 00:00:00.0520
+</buildStep>
+<buildStep step="Failed">
+
+SHFB: Error BE0036: Your version of the Microsoft Sandcastle documentation compiler tools is out of date (found &#39;2.4.10520.1&#39; but expected &#39;2.7.3.0&#39;).  See the error number topic in the help file for details.
+
+
+</buildStep>
+</shfbBuild>

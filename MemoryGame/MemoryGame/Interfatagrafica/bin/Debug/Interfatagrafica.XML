@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Interfatagrafica</name>
+    </assembly>
+    <members>
+        <member name="T:Interfatagrafica.ClasaFisiere">
+            <summary>
+            Clasa care va permite tratarea operatiilor cu fisiere
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.ClasaFisiere.nume_fisier">
+            <summary>
+            Data de tip string care specifica numele fisierului;
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.ClasaFisiere.read">
+            <summary>
+            Instanta de tip TextReader care permite operatii specifice pentru citirea din fisier
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.ClasaFisiere.write">
+            <summary>
+            Instanta de tip TextWriter care permite operatii specifice pentru scrierea in fisier
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.#ctor">
+            <summary>
+            Constructorul implicit al clasei curente
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.deschideFisier">
+            <summary>
+            Metoda de deschidere a unui fisier pentru CITIRE
+            </summary>
+            <returns>true daca fisierul s-a deschis cu succes, false altfel</returns>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.deschideScriereInFisier(System.String)">
+            <summary>
+            Metoda de deschidere a unui fisier pentru SCRIERE
+            </summary>
+            <param name="name">Numele fisierului care se va deschide pentru scriere</param>
+            <returns>true daca fisierul s-a deschis cu succes, false altfel</returns>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.scrieInFisier(System.String)">
+            <summary>
+            Metoda care scrie in fisier string-ul primit ca parametru
+            </summary>
+            <param name="sir_de_scris_in_fisier">String-ul care se va scrie in fisier</param>
+            <returns>Un string sugestiv pentru situatiile de succes/failure a operatiei de scriere in fisier</returns>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.inchideScriereFisier">
+            <summary>
+            Metoda publica de inchidere a fisierului deschis pentru SCRIERE
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.inchidereCitireFisier">
+            <summary>
+            Metoda publica de inchidere a fisierului deschis pentru CITIRE
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.ClasaFisiere.citesteLinie">
+            <summary>
+            Metoda publica de citire a unei linii din fisierul deschis anterior
+            </summary>
+            <returns>Linia citita din fisier</returns>
+        </member>
+        <member name="P:Interfatagrafica.ClasaFisiere.NumeFisier">
+            <summary>
+            Proprietate publica care ofera acces read-write la numele fisierului cu care se lucreaza
+            </summary>
+        </member>
+        <member name="T:Interfatagrafica.Form1">
+            <summary>
+            Clasa Form1 a Formei principale care va fi afisata.
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.btn1">
+            <summary>
+            Instanta statica si privata a Butonului pentru nivelul 'Easy'
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.medium1">
+            <summary>
+            Instanta statica si privata a Butonului pentru nivelul 'Medium'
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.hard1">
+            <summary>
+            Instanta statica si privata a Butonului pentru nivelul 'Hard
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.back">
+            <summary>
+            Instanta statica si privata a Butonului pentru revenirea la meniul principal
+            din meniul unde se alege nivelul unei categorii de joc
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.f">
+            <summary>
+            instanta statica a formei curente
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.backsecond">
+            <summary>
+            Instanta statica si privata a Butonului pentru revenirea dintr-un nivel de joc(din Easy, de exemplu)
+            la meniul unde se poate alege alt nivel de joc, dar in cadrul aceleiasi categorii
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.cronometruEticheta">
+            <summary>
+            Instanta statica si privata a etichetei care afiseaza cronometru
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.scorEticheta">
+            <summary>
+            Instanta statica statica si privata a unei etichete care arata scorul curent al jucatorului 
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.nrCopiiImagini">
+            <summary>
+            Variabila statica membra privata de tip int care retine numarul de copii ale unei imagini; in cazul proiectului de fata,
+            a versiunii curente, nrCopiiImagini este 2.
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.dimensiuneLista">
+            <summary>
+            Variabila statica membra privata de tip int care retine numarul de imagini dintr*un control ImageList
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.nrSecunde">
+            <summary>
+            Variabila statica membra privata de tip int care contorizeaza numarul de secunde;
+            atunci cand aceasa devine 60, se va reseta la valoarea 0
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.nrMinute">
+            <summary>
+            Variabila statica membra privata de tip int care contorizeaza numarul de minute;
+            atunci cand aceasta devine 60, se va reseta la valoarea 0
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.nrOre">
+            <summary>
+            Variabila membra privata de tip int care contorizeaza numarul de ore;
+            atunci cand valoarea acesteia devine 60, se va reseta la valoarea 0
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.greseli">
+            <summary>
+            Variabila statica membra privata de tip int care retine numarul de greseli;
+            prin greseala intelegem asocierea dintre doua imagini distincte
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.scor">
+            <summary>
+            Variabila statica membra privata de tip int care retine scorul jucatorului
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.timpi">
+            <summary>
+            Variabila statica membra privata de tip int care retine limita medie acordata fiecarui nivel al jocului;
+            Nivel easy - 25 secunde 
+            Nivelul medium - 60 secunde
+            Nivelul hard - 90 secunde
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.usor">
+            <summary>
+            Variabila statica privata de tip boolean care are valoarea true in cazul in care s-a optat nivelul usor
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.medium">
+            <summary>
+            variabila statica privata de tip boolean care are valoarea true in cazul in care s-a optat nivelul mediu
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.greu">
+            <summary>
+            variabila statica privata de tip boolean care are valoarea true in cazul in care s-a optat nivelul greu
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Potriviri">
+            <summary>
+            Lista de intregi statica si privata care retine indecsii a doua imagini care se potrivesc, care sunt asemena 
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Imagini">
+            <summary>
+            Lista de PictureBox-uri statica si privata care retine imaginile dintr-o anumita categorie
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Alegeri">
+            <summary>
+            Lista de PictureBox-uri care contine doua imagini care au fost alese si care vor fi verificate daca sunt asemena
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.#ctor">
+            <summary>
+            Constructorul implicit al formei curente, principale
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.creare_cronometru">
+            <summary>
+            Metoda care defineste proprietatile din cod ale etichetei care arata cronometrul
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.creare_scor">
+            <summary>
+            metoda care defineste proprietatile din cod ale etichetei care arata scorul
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.vizibilitati">
+            <summary>
+            Metoda care face butoanele pentru cele 3 nivele invizibile si porneste timer-ul formei
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.adauga_controale_pe_forma">
+            <summary>
+            Metoda care adauga controalele pentru alegerea nivelului si pentru butonul back pe forma dupa ce acestea au fost descrise
+            anterior in alte metode
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.creare_buton_inapoi">
+            <summary>
+            Metoda care descrie butonul de click-inapoi din un nivel ales la alegerea altui nivel
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.InitializeazaJoc">
+            <summary>
+            Metoda care initializeza jocul,adica seteaza la valori default listele de Imagini, Alegeri si Potriviri
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.initializare_date">
+            <summary>
+            metoda care seteaza variabilele booleene si scorul la valorile de start(fals si respectiv 0)
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.clickInapoi(System.Object,System.EventArgs)">
+            <summary>
+            Metoda de revenire la meniul principal de unde se poate alege categoria de joc(Minion/Easter/geometry)
+            </summary>
+            <param name="sender"> Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment </param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Amesteca(System.Collections.Generic.List{System.Windows.Forms.PictureBox}@)">
+            <summary>
+            Metoda de amestecare a imaginilor random pe suprafata formei
+            </summary>
+            <param name="img">Lista de imagini care vor fi amestecate pe forma</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.initializeazaButoane">
+            <summary>
+            metoda seteaza butoanele din meniul principal pe false
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.afiseazaImagini(System.Int32)">
+            <summary>
+            Metoda de afisare a imaginilor pe un numar de randuri specificat prin parametrul functiei. Numarul 
+            de imagini dispuse pe coloana depinde de nivelul jocului
+            </summary>
+            <param name="numarRanduri">Variabila de tip int care va specifica pe cate randuri se vor dispune imaginile</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.alegePerechi">
+            <summary>
+            Metoda care verifica daca 2 imagini care au fost selectate sunt identice, asa incat sa fie 'rezolvate'
+            </summary>
+            <returns>true daca imaginile sunt identice, false altfel</returns>
+        </member>
+        <member name="M:Interfatagrafica.Form1.adaugaControale">
+            <summary>
+            Metoda de adaugare a unor controale pe forma : cele 3 butoane pentru nivelele de joc si butonul de back din 
+            cadrul unui joc deja inceput sau selectat
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.buton_creare_din_cod(System.Windows.Forms.Button@,System.String,System.Int32,System.Int32)">
+            <summary>
+            Metoda care creeaza un buton cu anumite caracteristici specificate prin parametrii functiei
+            </summary>
+            <param name="x">Butonul care va fi creat- de tip referinta</param>
+            <param name="nivel">variabila de tip string care specifica nivelul jocului corespunzatoru butonului care se creeaza</param>
+            <param name="XLocation">Coordonata X a locatiei butonului care se doreste a fi creat</param>
+            <param name="YLocation">Coordonata Y a locatiei butonului care se doreste a fi creat</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.secondBack(System.Object,System.EventArgs)">
+            <summary>
+            Al doilea buton 'inapoi' care duce controlul jocului de la jocul efectiv la meniul unde se poate alege nivelul jocului
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Butonul (1) de pe forma principala de joc care alege categoria 'Minioni'
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Button2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Butonul (2) de pe forma principala de joc care alege categoria 'Easter'
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Button3_Click(System.Object,System.EventArgs)">
+            <summary>
+            Butonul (3) de pe forma principala de joc care alege categoria 'Geometry'
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Button4_Click(System.Object,System.EventArgs)">
+            <summary>
+            Butonul (4) de pe forma principala ajocului care permite parasirea aplicatiei
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Timer1_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Metoda de tratare a Timer-ului, adica ce se intampla la fiecare Interval al Timer-ului. Intervalul a fost setat la o secunda
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Button5_Click(System.Object,System.EventArgs)">
+            <summary>
+            Butonul (5) de pe forma principala a jocului ce permite afisarea istoricului jocului, adica informatii
+            despre persoane care au jucat jocul anterior si totodata informatiile de performanta a acestor jocuri jucate
+            Modul in care informatiile sunt stocate in fisier sunt reprezentate de capul de tabel, adica: 
+            'NUME     SCOR     TIMP   GRESELI    DATA    ORA    CATEGORIE'
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="F:Interfatagrafica.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Interfatagrafica.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Button1">
+            <summary>
+            Instanta privata a Butonului 1
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Button2">
+            <summary>
+            Instanta privata a Butonului 2
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Button3">
+            <summary>
+            Instanta privata a Butonului 3
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Button4">
+            <summary>
+            Instanta privata a Butonului 4
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Button5">
+            <summary>
+            Instanta internal a Butonului 5
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.PictureBox1">
+            <summary>
+            Instanta internal pentru controlul PictureBox1
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Minion">
+            <summary>
+            Instanta interna a controlului Minion de tip ImageList
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Geometry">
+            <summary>
+            Instanta publica a controlului Geometry de tip ImageList
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Easter">
+            <summary>
+            Instanta publica a controlului Easter de tip ImageList
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Form1.Timer1">
+            <summary>
+            Instanta statica interna a controlului Timer1 de tip Timer
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.timer1">
+            <summary>
+            Proprietate statica prin care se permite accesul read-write din alte clase a controlului de tip Timer (Timer1) 
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.potriviri">
+            <summary>
+            Proprietate statica prin care se permite accesul read-write din alte clase la Lista de int-uri Potriviri 
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.alegeri">
+            <summary>
+            Prorietate statica prin care se permite accesul read-write din alte clase la Lista de PictureBox-uri Alegeri
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Usor">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase la variabila booleana Usor
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Medium">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei booleene Medium
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Greu">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei booleene Greu
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Timpi">
+            <summary>
+            Proprietate care permite accesul read-write din alte clase a variabilei de tip int timpi
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.NrCopiiImagini">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int nrCopiiImagine
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.DimensiuneLista">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int dimensiuneLista
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.NrSecunde">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int nrSecunde
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.NrMinute">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int nrMinute
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.NrOre">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int nrore
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Greseli">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int greseli
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Scor">
+            <summary>
+            Proprietate statica care permite accesul read-write din alte clase a variabilei de tip int scor
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Btn1">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Butonului btn1
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Medium1">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Butonului medium1
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Hard1">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Butonului hard1
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Back">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Butonului back
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.Backsecond">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Butonului backsecond
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.CronometruEticheta">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a Etichetei cronometruEticheta
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.ScorEticheta">
+            <summary>
+            Proprietate startica care permite accesul read-write din alte clase a etichetei scorEtichet
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Form1.ff">
+            <summary>
+            Proprietate statica care permite accesul read-only din alte clase a formei curente
+            </summary>
+        </member>
+        <member name="T:Interfatagrafica.Nivele">
+            <summary>
+            Aceasta clasa va Avea ca si metoda membra un obiect de tipul clasei OperatiiImagini; in constructoul clasei, se va specifica
+            tipul de ImageList cu care se va lucra(Minion/Easter/Geometry). Clasa are trei metode cu nume sugestive care nu necesita explicatii
+            suplimentare : nivelUsor, nivelMedium, nivelGreu, metode care vor fi asociate ca si evenimente unor controale
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.Nivele.x">
+            <summary>
+            Obiect de tip OperatiiImagini care permite accesul intr-un nivel de joc a operatiilor cu imagini : click de imagine, desenarea imaginiilor,
+            ascunderea imaginilor etc. Pentru informatii optionale, se poate accesa documentatia clasei 'ÓperatiiImagini'
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.Nivele.#ctor(System.Windows.Forms.ImageList)">
+            <summary>
+            Constructorul cu parametri in care se specifica o lista de imagini, adica implicit cateogoria de joc
+            </summary>
+            <param name="given">Lista de imagini(variabila de tip ImageList) din pentru care se vor trata cele 3 nivele de joc</param>
+        </member>
+        <member name="M:Interfatagrafica.Nivele.nivelUsor(System.Object,System.EventArgs)">
+            <summary>
+            Metoda publica de tratare a nivelului Easy
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Nivele.nivelMedium(System.Object,System.EventArgs)">
+            <summary>
+            Metoda publica de tratare a nivelului Medium
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.Nivele.nivelGreu(System.Object,System.EventArgs)">
+            <summary>
+            Metoda publica de tratare a nivelului Hard
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="T:Interfatagrafica.OperatiiImagini">
+            <summary>
+            Clasa va prelucra imaginile dintr-un ImageList si se va crea o instanta a acesteia in clasa Nivele
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.OperatiiImagini.ilGrupajImagini">
+            <summary>
+            Variabila de tip ImageList care contine imaginile pentru care se vor executa operatiile 
+            din clasa curenta(metodele)
+            </summary>
+        </member>
+        <member name="F:Interfatagrafica.OperatiiImagini.files">
+            <summary>
+            Instanta a clasei care lucreaza cu fisiere prin care se vor permite operatiile cu fisiere
+            doar prin accesarea unor simple metode ale acestei clase. Pentru informatii suplimentare,
+            accesati documentatia clasei 'ClasaFisiere'
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.#ctor">
+            <summary>
+            Constructor implicit al clasei curente care ceeaza pentru metoda ilGrupajImagini un obiect nou de tip ImageList
+            </summary>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.#ctor(System.Windows.Forms.ImageList)">
+            <summary>
+            Constructor cu parametri pentru clasa curenta; in acest constructor, se va seta numele fisierului care va contine
+            istoricul jocului la "istoric.txt"; NU se va negocia acest nume al fisierului cu utilizatorul!!!!
+            </summary>
+            <param name="x">Variabila de tip ImageList care va fi atribuita datei ilGrupajImagini</param>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.deseneazaImagine(System.Int32,System.Int32)">
+            <summary>
+            Metoda care deseneaza Imaginile pe forma
+            </summary>
+            <param name="numarTipImagine">Numarul de imagini dispuse pe coloana</param>
+            <param name="numarCopiiImagini">Numarul de iamgini dispuse pe linie</param>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.imagineClick(System.Object,System.EventArgs)">
+            <summary>
+            Metoda care trateaza click-ul pe o imagine si verifica daca imaginea curenta selectata este identica sau nu cu cea anterioara
+            </summary>
+            <param name="sender">Obiectul sender standard asociat unei proceduri-eveniment</param>
+            <param name="e">Variabila de tip EventArgs standard asociata unei proceduri-eveniment</param>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.ascundeImagini(System.Windows.Forms.PictureBox)">
+            <summary>
+            Metoda care ascunde imaginea, in sensul ca intr-o pozitie anume, se va afisa imaginea generica cu semnul intrebarii,
+            adica ultima imagine din controlul ilGrupajImagini
+            </summary>
+            <param name="imagine">Variabila de tip PictureBox care reprezinta imaginea curenta care va fi 'ascunsa'</param>
+        </member>
+        <member name="M:Interfatagrafica.OperatiiImagini.arataimagine(System.Windows.Forms.PictureBox)">
+            <summary>
+            Metoda care afiseaza in imaginea unde s-a efectuat click, imaginea specificata ca parametru
+            </summary>
+            <param name="imagine">Variabila de tip PictureBox care reprezinta imaginea care va fi afisata</param>
+        </member>
+        <member name="M:Interfatagrafica.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Interfatagrafica.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.absc">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.backk1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.chenar">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.easter1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.geometry">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.matchMinion1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.matchMinion11">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.memory">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Interfatagrafica.Properties.Resources.smile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
