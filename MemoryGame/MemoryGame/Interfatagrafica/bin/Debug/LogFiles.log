@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2016.9.17.0" projectFile="D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\FirstDocumentation.shfbproj" started="11.12.2016 14:09:01">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2016.9.17.0" projectFile="D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\FirstDocumentation.shfbproj" started="13.12.2016 18:02:36">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -28,16 +28,16 @@ Copying XML comments files
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00,0180
+</plugIn>    Last step completed in 00:00:00,3520
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0020
+    Last step completed in 00:00:00,0530
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateRefInfo.proj]
-Build started 11.12.2016 14:09:04.
+Build started 13.12.2016 18:02:45.
 Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -57,13 +57,13 @@ Done Building Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encryp
 
 Build succeeded.
 
-Time Elapsed 00:00:07.61
-    Last step completed in 00:00:09,0745
+Time Elapsed 00:00:04.36
+    Last step completed in 00:00:06,8844
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - TransformManifest.proj]
-Build started 11.12.2016 14:09:13.
+Build started 13.12.2016 18:02:50.
 Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2016.9.17.0)
@@ -83,26 +83,26 @@ Done Building Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encryp
 
 Build succeeded.
 
-Time Elapsed 00:00:06.45
-    Last step completed in 00:00:07,8344
+Time Elapsed 00:00:04.29
+    Last step completed in 00:00:04,9363
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,1650
+    Last step completed in 00:00:00,2340
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0120
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00,0000
+    Last step completed in 00:00:00,0010
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - GenerateIntermediateTOC.proj]
-Build started 11.12.2016 14:09:21.
+Build started 13.12.2016 18:02:55.
 Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2016.9.17.0)
@@ -113,26 +113,26 @@ Done Building Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encryp
 
 Build succeeded.
 
-Time Elapsed 00:00:03.51
+Time Elapsed 00:00:01.50
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:04,9333
+    Last step completed in 00:00:02,1291
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:01,4351
+    Last step completed in 00:00:01,1831
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\sandcastle.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00,0150
+    Last step completed in 00:00:00,0330
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe - BuildTopics.proj]
-Build started 11.12.2016 14:09:27.
+Build started 13.12.2016 18:02:59.
 Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj&quot; on node 1 (default targets).
 BuildTopics:
   BuildAssembler (v2016.9.17.0)
@@ -143,7 +143,7 @@ BuildTopics:
   Processing topics...
 BuildAssembler : warning : ShowMissingComponent: [N:Interfatagrafica] Missing &lt;summary&gt; documentation [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:Interfatagrafica.ClasaFisiere] MSDN web service failed.  No further look ups will be performed for this build. [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
-BuildAssembler : warning : Reason: The request failed with HTTP status 417: Expectation Failed. [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
+BuildAssembler : warning : Reason: The remote name could not be resolved: &#39;services.msdn.microsoft.com&#39; [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [T:Interfatagrafica.Program] Missing &lt;summary&gt; documentation [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [N:Interfatagrafica.Properties] Missing &lt;summary&gt; documentation [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:Interfatagrafica.Properties.Resources.resourceCulture] Missing &lt;summary&gt; documentation [D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\BuildTopics.proj]
@@ -156,12 +156,12 @@ Done Building Project &quot;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encryp
 
 Build succeeded.
 
-Time Elapsed 00:00:49.68
-    Last step completed in 00:00:51,2329
+Time Elapsed 00:00:28.59
+    Last step completed in 00:00:29,3147
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00,0270
+    Last step completed in 00:00:00,0060
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -177,7 +177,7 @@ Processed 143 HTML files
 Sorting keywords and generating See Also indices
 Saving HTML Help 1 keyword index to D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Documentation.hhk
 Saving HTML Help 1 table of contents to D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Documentation.hhc
-    Last step completed in 00:00:06,2434
+    Last step completed in 00:00:02,4911
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -243,7 +243,7 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Output\HtmlHelp1\styles\branding-zh-CN.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Output\HtmlHelp1\styles\branding-zh-TW.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Output\HtmlHelp1\styles\branding.css
-    Last step completed in 00:00:00,1940
+    Last step completed in 00:00:00,6990
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating HTML Help 1 table of contents file...
@@ -255,7 +255,7 @@ Generating HTML Help 1 index file...
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00,0170
+    Last step completed in 00:00:00,0240
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
@@ -270,7 +270,7 @@ Compiling HTML Help 1 file...
   
   
   
-  Compile time: 0 minutes, 6 seconds
+  Compile time: 0 minutes, 4 seconds
   
   145	Topics
   
@@ -284,19 +284,20 @@ Compiling HTML Help 1 file...
   
   
   
-  Created d:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Output\HtmlHelp1\Documentation.chm, 263,783 bytes
+  Created d:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\Output\HtmlHelp1\Documentation.chm, 263,795 bytes
   
-  Compression decreased file by 1,301,922 bytes.
+  Compression decreased file by 1,301,910 bytes.
   
-    Last step completed in 00:00:12,2377
+    Last step completed in 00:00:07,3854
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00,1320
+    Not all build output was removed from &#39;D:\facultate\Anul III\Semestrul_I\PIU\Proiect\Encrypt\MemoryGame\BuildHere\&#39;: The process cannot access the file &#39;reflection.xml&#39; because it is being used by another process.
+    Last step completed in 00:00:00,1280
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 11.12.2016 14:10:36.  Total time: 00:01:35,1434
+Build completed successfully at 13.12.2016 18:03:38.  Total time: 00:01:01,6145
 
 </buildStep>
 </shfbBuild>

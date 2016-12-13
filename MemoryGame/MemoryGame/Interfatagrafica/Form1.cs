@@ -643,5 +643,10 @@ namespace Interfatagrafica
             else
                 MessageBox.Show("FISIERUL nu exista!!");
         }
+
+        public string functie_noua(object sender, EventArgs e, int timp)
+        {
+            return "";
+        }
        }
 }
